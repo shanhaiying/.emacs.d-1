@@ -1,0 +1,4 @@
+#name : Caption for the next table or link
+#contributor : zhenglj <zhenglj1989@hotmail.com>
+# --
+#+CAPTION: ${1:table or link}

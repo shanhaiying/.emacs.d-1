@@ -1,0 +1,5 @@
+#name : Source Code Block
+#contributor : Jonathan Arkell <jonnay@jonnay.net>
+# --
+#+BEGIN_SRC $1$>
+#+END_SRC

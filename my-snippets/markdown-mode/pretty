@@ -1,0 +1,6 @@
+#name : Google code prettify
+#contributor: 
+# --
+<pre class="prettyprint lang-${1:c} linenums=${2:true}">
+$0
+</pre>
