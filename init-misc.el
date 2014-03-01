@@ -630,7 +630,7 @@ The full path into relative path insert it as a local file link in org-mode"
 ;;         ))
 ;;   (toggle-input-method))
 
-(global-set-key (kbd "C-\\") 'evil-toggle-input-method)
+;; (global-set-key (kbd "C-\\") 'evil-toggle-input-method)
 
 ;; color theme
 (require 'color-theme)

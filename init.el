@@ -130,7 +130,7 @@
 (require 'init-lua-mode)
 (require 'init-term-mode)
 (require 'init-web-mode)
-
+(require 'init-tex-mode)
 (require 'init-lisp)
 (require 'init-elisp)
 

@@ -99,7 +99,9 @@ ARCHIVE is the string name of the package archive.")
     ctags
     fakir
     erlang
-    bm)
+    bm
+    auto-complete-auctex
+    )
   "Don't install any Melpa packages except these packages")
 
 (defvar melpa-exclude-packages
@@ -272,6 +274,7 @@ ARCHIVE is the string name of the package archive.")
 ;;(require-package 'git-messenger '(20130613 1222 0) nil)
 (require-package 'issue-tracker '(0 0 1) nil)
 (require-package 'bm)
+(require-package 'auto-complete-auctex)
 
 (when *emacs24*
   (require-package 'helm '(20140205 2333 0) nil)
