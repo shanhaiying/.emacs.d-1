@@ -94,6 +94,7 @@ ARCHIVE is the string name of the package archive.")
     textile-mode
     pretty-mode
     lively
+    auto-complete
     auto-complete-clang
     w3m
     ctags
@@ -110,7 +111,6 @@ ARCHIVE is the string name of the package archive.")
     evil-nerd-commenter
     company
     evil
-    auto-complete
     dash)
   "Don't install Melpa versions of these packages.")
 
@@ -274,6 +274,7 @@ ARCHIVE is the string name of the package archive.")
 ;;(require-package 'git-messenger '(20130613 1222 0) nil)
 (require-package 'issue-tracker '(0 0 1) nil)
 (require-package 'bm)
+(require-package 'auto-complete)
 (require-package 'auto-complete-auctex)
 
 (when *emacs24*

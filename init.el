@@ -96,9 +96,9 @@
 ;; (if (not (boundp 'light-weight-emacs)) (require 'init-yasnippet))
 (require 'init-yasnippet)
 (when *emacs24*
-    (require 'init-company)
+    ;; (require 'init-company)
     ;; Choose either auto-complete or company-mode by commenting one of below two lines!
-    ;; (require 'init-auto-complete) ; after init-yasnippeta to override TAB
+    (require 'init-auto-complete) ; after init-yasnippeta to override TAB
   )
 (require 'init-speedbar)
 
