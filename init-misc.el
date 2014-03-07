@@ -647,7 +647,7 @@ The full path into relative path insert it as a local file link in org-mode"
 ;; (autopair-global-mode)
 
 (require 'undo-tree)
-(global-undo-tree-mode)
+;; (global-undo-tree-mode)
 ;; (defalias 'redo 'undo-tree-redo)
 (global-set-key (kbd "C-/") 'undo) ; Ctrl+/
 (global-set-key (kbd "C-?") 'undo-tree-redo) ; Ctrl+Shift+?

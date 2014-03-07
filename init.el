@@ -92,14 +92,6 @@
 (require 'init-ibus)
 ;; (if (not (boundp 'light-weight-emacs)) (require 'init-eim))
 
-;;(require 'init-fill-column-indicator) ;make auto-complete dropdown wierd
-;; (if (not (boundp 'light-weight-emacs)) (require 'init-yasnippet))
-(require 'init-yasnippet)
-(when *emacs24*
-    ;; (require 'init-company)
-    ;; Choose either auto-complete or company-mode by commenting one of below two lines!
-    (require 'init-auto-complete) ; after init-yasnippeta to override TAB
-  )
 (require 'init-speedbar)
 
 (require 'init-ctags)
@@ -143,6 +135,16 @@
 ;; (require 'init-better-registers) ; C-x j - jump to register
 (require 'init-zencoding-mode) ;emmet-mode, behind init-better-register to override C-j
 ; ---------------------------------------------------------------------------
+
+
+;;(require 'init-fill-column-indicator) ;make auto-complete dropdown wierd
+;; (if (not (boundp 'light-weight-emacs)) (require 'init-yasnippet))
+(require 'init-yasnippet)
+(when *emacs24*
+    ;; (require 'init-company)
+    ;; Choose either auto-complete or company-mode by commenting one of below two lines!
+    (require 'init-auto-complete) ; after init-yasnippeta to override TAB
+  )
 
 (require 'init-org2blog)
 

@@ -34,21 +34,21 @@ the directories in the INCLUDE environment variable."
 (require 'gdb-mi nil 'noerror)
 
 (defadvice gdb-setup-windows (after my-setup-gdb-windows activate)
-  "my gdb UI"
-  ;; (gdb-get-buffer-create 'gdb-locals-buffer)
+  "my gdb ui,fix sizes of every buffer"
+  (gdb-get-buffer-create 'gdb-locals-buffer)
   (gdb-get-buffer-create 'gdb-stack-buffer)
+  (gdb-get-buffer-create 'gdb-breakpoints-buffer)
   (set-window-dedicated-p (selected-window) nil)
   (switch-to-buffer gud-comint-buffer)
   (delete-other-windows)
   (let ((win0 (selected-window))
-        (win1 (split-window nil (/ (* (window-width) 1) 2) 'left))                     ;code and output
-        (win2 (split-window-below (/ (* (window-height) 3) 4))) ;stack
-        )
+        (win1 (split-window nil ( / ( * (window-height) 8) 10)))
+        (win2 (split-window nil ( / ( * (window-height) 3) 8)))
+        (win3 (split-window nil ( - ( / ( * (window-width) 2) 3) 1) 'right)))
+    (gdb-set-window-buffer (gdb-get-buffer-create 'gdb-inferior-io) nil win3)
     (select-window win2)
-    (gdb-set-window-buffer (gdb-stack-buffer-name))
-    (select-window win1)
     (set-window-buffer
-     win1
+     win2
      (if gud-last-last-frame
          (gud-find-file (car gud-last-last-frame))
        (if gdb-main-file
@@ -57,11 +57,79 @@ the directories in the INCLUDE environment variable."
          ;; can't find a source file.
          (list-buffers-noselect))))
     (setq gdb-source-window (selected-window))
-    (let ((win3 (split-window nil (/ (* (window-height) 3) 4)))) ;io
-      (gdb-set-window-buffer (gdb-get-buffer-create 'gdb-inferior-io) nil win3)) ;gdb-inferior-io
-      ;; (gdb-set-window-buffer (gdb-get-buffer-create 'gdb-locals-buffer) nil win3)
-    (select-window win0)
-    ))
+    (let ((win4 (split-window nil ( / ( * (window-width) 2) 3) 'right)))
+      (gdb-set-window-buffer (gdb-locals-buffer-name) nil win4))
+    (select-window win1)
+    (gdb-set-window-buffer (gdb-stack-buffer-name))
+    (let ((win5 (split-window-right)))
+      (gdb-set-window-buffer (if gdb-show-threads-by-default
+                                 (gdb-threads-buffer-name)
+                               (gdb-breakpoints-buffer-name))
+                             nil win5))
+    (select-window win0)))
+
+;; (defadvice gdb-setup-windows (after my-setup-gdb-windows activate)
+;;   "my gdb ui, just source,gdb,io,stack buffers"
+;;   (gdb-get-buffer-create 'gdb-locals-buffer)
+;;   (gdb-get-buffer-create 'gdb-stack-buffer)
+;;   (set-window-dedicated-p (selected-window) nil)
+;;   (switch-to-buffer gud-comint-buffer)
+;;   (delete-other-windows)
+;;   (let ((win0 (selected-window))
+;;         (win1 (split-window nil (/ (* (window-width) 1) 2) 'left))                     ;code and output
+;;         (win2 (split-window-below (/ (* (window-height) 3) 4))) ;stack
+;;         )
+;;     (select-window win2)
+;;     (gdb-set-window-buffer (gdb-stack-buffer-name))
+;;     (select-window win1)
+;;     (set-window-buffer
+;;      win1
+;;      (if gud-last-last-frame
+;;          (gud-find-file (car gud-last-last-frame))
+;;        (if gdb-main-file
+;;            (gud-find-file gdb-main-file)
+;;          ;; Put buffer list in window if we
+;;          ;; can't find a source file.
+;;          (list-buffers-noselect))))
+;;     (setq gdb-source-window (selected-window))
+;;     (let ((win3 (split-window nil (/ (* (window-height) 3) 4)))) ;io
+;;       (gdb-set-window-buffer (gdb-get-buffer-create 'gdb-inferior-io) nil win3)) ;gdb-inferior-io
+;;       ;; (gdb-set-window-buffer (gdb-get-buffer-create 'gdb-locals-buffer) nil win3)
+;;     (select-window win0)
+;;  ))
+
+;; (defadvice gdb-setup-windows (after my-setup-gdb-windows activate)
+;;   "my gdb ui, just source,gdb,io,locals,stack buffers"
+;;   (gdb-get-buffer-create 'gdb-locals-buffer)
+;;   (gdb-get-buffer-create 'gdb-stack-buffer)
+;;   (set-window-dedicated-p (selected-window) nil)
+;;   (switch-to-buffer gud-comint-buffer)
+;;   (delete-other-windows)
+;;   (let ((win0 (selected-window))
+;;         (win1 (split-window nil (/ ( * (window-height) 3) 4)))
+;;         (win2 (split-window nil (/ (* (window-width) 1) 2) 'left))
+;;         ;; (win1 (split-window nil (/ (* (window-width) 1) 2) 'left))                     ;code and output
+;;         ;; (win2 (split-window-below (/ (* (window-height) 3) 4))) ;stack
+;;         )
+;;     (gdb-set-window-buffer (gdb-locals-buffer-name) nil win1)
+;;     (select-window win2)
+;;     (set-window-buffer
+;;      win2
+;;      (if gud-last-last-frame
+;;          (gud-find-file (car gud-last-last-frame))
+;;        (if gdb-main-file
+;;            (gud-find-file gdb-main-file)
+;;          ;; Put buffer list in window if we
+;;          ;; can't find a source file.
+;;          (list-buffers-noselect))))
+;;     (setq gdb-source-window (selected-window))
+;;     (select-window win1)
+;;     (let ((win3 (split-window nil (/ (* (window-width) 2) 3) 'left))) ;io
+;;       (gdb-set-window-buffer (gdb-get-buffer-create 'gdb-inferior-io) nil win3)) ;gdb-inferior-io
+;;     (select-window win1)
+;;     (let ((win4 (split-window nil (/ (* (window-width) 1) 2) 'right)))
+;;       (gdb-set-window-buffer (gdb-stack-buffer-name) nil win4))
+;;     (select-window win0)))
 
 (defun gud-break-or-remove (&optional force-remove)
   "Set/clear breakpoin."

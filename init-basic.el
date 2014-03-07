@@ -202,8 +202,8 @@
                      (holiday-lunar 7 7 "七夕节")
                      (holiday-lunar 9 9 "重阳节(九月初九)"))))
      (setq cal-china-x-priority2-holidays
-           '((holiday-chinese 5 29 "zhenglj's birthday")
-             (holiday-chinese 2 22 "Miss Gu's birthday")
+           ((holiday-chinese 2 22 "Miss Gu's birthday")
+             (holiday-chinese 5 29 "zhenglj's birthday")
              (holiday-fixed 10 16 "")
              (holiday-chinese 11 13 "")))
      (setq calendar-holidays
@@ -423,14 +423,13 @@ Like eclipse's Ctrl+Alt+F."
                              (if (boundp 'old-fullscreen) old-fullscreen nil)
                            (progn (setq old-fullscreen current-value)
                                   'fullboth)))))
-;; (global-set-key [f11] 'toggle-fullscreen)
-
-;; (defun my-fullscreen ()
+;; (defun toggle-fullscreen ()
 ;;   (interactive)
 ;;   (x-send-client-message
 ;;    nil 0 nil "_NET_WM_STATE" 32
 ;;    '(2 "_NET_WM_STATE_FULLSCREEN" 0))
 ;;   )
+(global-set-key [f11] 'toggle-fullscreen)
 
 ;; ---------------------------------------------------------------
 ;; global key bindings (kbd)
@@ -569,8 +568,8 @@ Like eclipse's Ctrl+Alt+F."
   (split-window-vertically)
   (eshell))
 
-(global-set-key [(f8)] 'open-eshell-other-buffer) ;open eshell in other buffer
-(global-set-key [C-f8] 'eshell)                   ;open eshell in current buffer
+(global-set-key [(f6)] 'open-eshell-other-buffer) ;open eshell in other buffer
+;; (global-set-key [C-f6] 'eshell)                   ;open eshell in current buffer
 
 
 (provide 'init-basic)

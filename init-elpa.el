@@ -275,6 +275,7 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'issue-tracker '(0 0 1) nil)
 (require-package 'bm)
 (require-package 'auto-complete)
+(require-package 'auto-complete-clang)
 (require-package 'auto-complete-auctex)
 
 (when *emacs24*

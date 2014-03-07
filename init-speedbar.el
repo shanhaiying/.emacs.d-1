@@ -21,6 +21,6 @@
   (interactive)
   (speedbar-edit-line)
   (other-window 1))
-(global-set-key [C-f11] 'speedbar-get-focus)
+(global-set-key [(meta f11)] 'speedbar-get-focus)
 
 (provide 'init-speedbar)

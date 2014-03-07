@@ -9,7 +9,7 @@
 (setq w3m-home-page
       (if (file-readable-p "~/html/home.html")
         (concat "file://" (expand-file-name "~/html/home.html"))
-        "http://www.google.com.au"))
+        "http://www.google.com.hk"))
 
 (setq w3m-use-toolbar t
       ;w3m-use-tab     nil
@@ -22,14 +22,14 @@
 (setq w3m-search-default-engine "g")
 (eval-after-load "w3m-search" '(progn
                                  ; C-u S g RET <search term> RET
-                                 (add-to-list 'w3m-search-engine-alist '("g" "http://www.google.com.au/search?hl=en&q=%s" utf-8))
+                                 (add-to-list 'w3m-search-engine-alist '("g" "http://www.google.com.hk/search?hl=en&q=%s" utf-8))
                                  (add-to-list 'w3m-search-engine-alist '("wz" "http://zh.wikipedia.org/wiki/Special:Search?search=%s" utf-8))
-                                 (add-to-list 'w3m-search-engine-alist '("q" "http://www.google.com.au/search?hl=en&q=%s+site:stackoverflow.com" utf-8))
+                                 (add-to-list 'w3m-search-engine-alist '("q" "http://www.google.com.hk/search?hl=en&q=%s+site:stackoverflow.com" utf-8))
                                  (add-to-list 'w3m-search-engine-alist '("s" "http://code.ohloh.net/search?s=%s&browser=Default"  utf-8))
-                                 (add-to-list 'w3m-search-engine-alist '("b" "http://blogsearch.google.com.au/blogsearch?q=%s" utf-8))
+                                 (add-to-list 'w3m-search-engine-alist '("b" "http://blogsearch.google.com.hk/blogsearch?q=%s" utf-8))
                                  (add-to-list 'w3m-search-engine-alist '("w" "http://en.wikipedia.org/wiki/Special:Search?search=%s" utf-8))
                                  (add-to-list 'w3m-search-engine-alist '("d" "http://dictionary.reference.com/search?q=%s" utf-8))
-                                 (add-to-list 'w3m-search-engine-alist '("j" "http://www.google.com.au/search?ie=UTF-8&oe=UTF-8&sourceid=navclient&btnI=1&q=%s+site:developer.mozilla.org" utf-8))
+                                 (add-to-list 'w3m-search-engine-alist '("j" "http://www.google.com.hk/search?ie=UTF-8&oe=UTF-8&sourceid=navclient&btnI=1&q=%s+site:developer.mozilla.org" utf-8))
                                  ))
 
 (setq w3m-command-arguments       '("-F" "-cookie")
@@ -47,7 +47,7 @@
 (setq browse-url-generic-program
       (cond
        (*is-a-mac* "open")
-       (*linux* (executable-find "firefox"))
+       (*linux* (executable-find "google-chrome"))
        ))
 (setq browse-url-browser-function 'browse-url-generic)
 
@@ -58,13 +58,13 @@
   (require 'w3m)
   (let ((keyword (w3m-url-encode-string (thing-at-point 'symbol))))
     ;; google
-    (browse-url-generic (concat "http://www.google.com.au/search?hl=en&q=%22"
+    (browse-url-generic (concat "http://www.google.com.hk/search?hl=en&q=%22"
                                 keyword
                                 "%22"
                                 (if buffer-file-name
 									(concat "+filetype%3A" (file-name-extension buffer-file-name))
 									"")  ))
-    (browse-url-generic (concat "http://www.google.com.au/search?hl=en&q="
+    (browse-url-generic (concat "http://www.google.com.hk/search?hl=en&q="
                                 keyword
                                 "+site:stackoverflow.com" ))
     ;; koders.com
@@ -74,7 +74,7 @@
     ))
 
 (defun w3mext-open-link-or-image-or-url ()
-  "Opens the current link or image or current page's uri or any url-like text under cursor in firefox."
+  "Opens the current link or image or current page's uri or any url-like text under cursor in google-chrome."
   (interactive)
   (let (url)
     (if (or (string= major-mode "w3m-mode") (string= major-mode "gnus-article-mode"))

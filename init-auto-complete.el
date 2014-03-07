@@ -89,4 +89,6 @@
     (add-to-list 'ac-sources 'ac-source-yasnippet))
   (add-hook 'auto-complete-mode-hook 'ac-yasnippet-setup))
 
+(require 'auto-complete-auctex)         ;Dependencies yasnippet 0.6.1 / auto-complete 1.4
+
 (provide 'init-auto-complete)
