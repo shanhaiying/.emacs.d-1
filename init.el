@@ -19,18 +19,18 @@
 (setq *emacs23* (and (not *xemacs*) (or (>= emacs-major-version 23))) )
 (setq *emacs24* (and (not *xemacs*) (or (>= emacs-major-version 24))) )
 
-;----------------------------------------------------------------------------
-; Functions (load all files in defuns-dir)
-; Copied from https://github.com/magnars/.emacs.d/blob/master/init.el
-;----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+;;  Functions (load all files in defuns-dir)
+;;  Copied from https://github.com/magnars/.emacs.d/blob/master/init.el
+;; ----------------------------------------------------------------------------
 (setq defuns-dir (expand-file-name "~/.emacs.d/defuns"))
 (dolist (file (directory-files defuns-dir t "\\w+"))
   (when (file-regular-p file)
       (load file)))
 
-;----------------------------------------------------------------------------
-; Load configs for specific features and modes
-;----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+;;  Load configs for specific features and modes
+;; ----------------------------------------------------------------------------
 ;; (require 'init-modeline)
 
 ;;----------------------------------------------------------------------------
@@ -54,12 +54,12 @@
    )
   )
 
-(require 'init-elpa)
-(require 'init-exec-path) ;; Set up $PATH
+(require 'init-elpa)                    ;App Store
+(require 'init-exec-path)               ;Set up $PATH
 
-;-----------------------------------------------------------------
-; basic configs
-;-----------------------------------------------------------------
+;; -----------------------------------------------------------------
+;;  basic configs
+;; -----------------------------------------------------------------
 (require 'init-basic)
 (require 'init-fonts)
 (require 'init-popup)
@@ -100,9 +100,9 @@
 
 (require 'init-misc)
 
-;-----------------------------------------------------------------
-; mode configs
-;-----------------------------------------------------------------
+;; -----------------------------------------------------------------
+;;  mode configs
+;; -----------------------------------------------------------------
 (require 'init-crontab)
 (require 'init-textile)
 (require 'init-markdown)
@@ -134,7 +134,7 @@
 (require 'init-mode-hook)
 ;; (require 'init-better-registers) ; C-x j - jump to register
 (require 'init-zencoding-mode) ;emmet-mode, behind init-better-register to override C-j
-; ---------------------------------------------------------------------------
+;; ---------------------------------------------------------------------------
 
 
 ;;(require 'init-fill-column-indicator) ;make auto-complete dropdown wierd

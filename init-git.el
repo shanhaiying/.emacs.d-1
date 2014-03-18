@@ -44,7 +44,7 @@
 
 ;; {{ git-gutter
 (require 'git-gutter)
-
+;; (require 'git-gutter-fringe)
 ;; If you enable global minor mode
 (global-git-gutter-mode t)
 
