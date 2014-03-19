@@ -48,7 +48,8 @@
   "Create tags file."
   (interactive "DDirectory: ")
   (shell-command
-   (format "ctags -f %s/TAGS -e -R %s" dir-name (directory-file-name dir-name)))
+   ;; (format "ctags -f %s/TAGS -e -R %s" dir-name (directory-file-name dir-name))
+   (format "ctags -f %s/TAGS -R %s" dir-name (directory-file-name dir-name)))
   )
 
 ; @see http://xahlee.blogspot.com/2012/01/emacs-tip-hotkey-for-repeat-complex.html

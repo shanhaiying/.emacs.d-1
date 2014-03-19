@@ -42,6 +42,9 @@
                                 (mode . scala-mode)
                                 (mode . go-mode)
                                 (mode . erlang-mode)
+                                (mode . makefile-mode)
+                                (mode . makefile-gmake-mode)
+                                (mode . latex-mode)
                                 ))
                     ("dired" (or (mode . dired-mode)
                                  (mode . sr-mode)
@@ -53,7 +56,6 @@
                                 (mode . muse-mode)
                                 (mode . org-mode)
                                 (mode . org-agenda-mode)
-                                (mode . latex-mode)
                                 ))
                     ("emacs" (or
                               (name . "^\\*scratch\\*$")

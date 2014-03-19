@@ -42,22 +42,22 @@
   '("." "./include" "./inc" "./common" "./public"
     ".." "../include" "../inc" "../common" "../public"
     "../.." "../../include" "../../inc" "../../common" "../../public"
-    "D:/MinGW/include"
-    "D:/MinGW/include/c++/3.4.5"
-    "D:/MinGW/include/c++/3.4.5/mingw32"
-    "D:/MinGW/include/c++/3.4.5/backward"
-    "D:/MinGW/lib/gcc/mingw32/3.4.5/include"
+    ;; "D:/MinGW/include"
+    ;; "D:/MinGW/include/c++/3.4.5"
+    ;; "D:/MinGW/include/c++/3.4.5/mingw32"
+    ;; "D:/MinGW/include/c++/3.4.5/backward"
+    ;; "D:/MinGW/lib/gcc/mingw32/3.4.5/include"
     ;; "D:/Program Files/Microsoft Visual Studio/VC98/Include"
     ;; "D:/Program Files/Microsoft Visual Studio/VC98/MFC/Include"
-    "D:/Program Files/Microsoft Visual Studio 10.0/VC/include"
+    ;; "D:/Program Files/Microsoft Visual Studio 10.0/VC/include"
     )
   "User include dirs for c/c++ mode")
 
 (defvar c-preprocessor-symbol-files
-  '("D:/MinGW/include/c++/3.4.5/mingw32/bits/c++config.h"
+  '(;; "D:/MinGW/include/c++/3.4.5/mingw32/bits/c++config.h"
     ;; "D:/Program Files/Microsoft Visual Studio/VC98/Include/xstddef"
-    "D:/Program Files/Microsoft Visual Studio 10.0/VC/include/yvals.h"
-    "D:/Program Files/Microsoft Visual Studio 10.0/VC/include/crtdefs.h"
+    ;; "D:/Program Files/Microsoft Visual Studio 10.0/VC/include/yvals.h"
+    ;; "D:/Program Files/Microsoft Visual Studio 10.0/VC/include/crtdefs.h"
     )
   "Preprocessor symbol files for cedet")
 
