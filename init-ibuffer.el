@@ -56,6 +56,9 @@
                                 (mode . muse-mode)
                                 (mode . org-mode)
                                 (mode . org-agenda-mode)
+				(mode . gitignore-mode)
+				(mode . conf-mode)
+				(mode . conf-unix-mode)
                                 ))
                     ("emacs" (or
                               (name . "^\\*scratch\\*$")

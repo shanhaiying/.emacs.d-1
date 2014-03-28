@@ -13,7 +13,7 @@
 ;; ---------------------------------------------------------------
 ;; user information
 (setq user-full-name "zhenglj")
-(setq user-mail-address "zhenglinj@hotmail.com")
+(setq user-mail-address "zhenglj89@gmail.com")
 
 ;; ---------------------------------------------------------------
 ;; ui

@@ -44,7 +44,9 @@ the directories in the INCLUDE environment variable."
   (let ((win0 (selected-window))
         (win1 (split-window nil ( / ( * (window-height) 8) 10)))
         (win2 (split-window nil ( / ( * (window-height) 3) 8)))
-        (win3 (split-window nil ( - ( / ( * (window-width) 2) 3) 1) 'right)))
+        ;; (win3 (split-window nil ( - ( / ( * (window-width) 2) 3) 1) 'right))
+        (win3 (split-window nil (- (window-width) 40) 'right))
+	)
     (gdb-set-window-buffer (gdb-get-buffer-create 'gdb-inferior-io) nil win3)
     (select-window win2)
     (set-window-buffer
@@ -57,7 +59,7 @@ the directories in the INCLUDE environment variable."
          ;; can't find a source file.
          (list-buffers-noselect))))
     (setq gdb-source-window (selected-window))
-    (let ((win4 (split-window nil ( / ( * (window-width) 2) 3) 'right)))
+    (let ((win4 (split-window nil (- (window-width) 38) 'right)))
       (gdb-set-window-buffer (gdb-locals-buffer-name) nil win4))
     (select-window win1)
     (gdb-set-window-buffer (gdb-stack-buffer-name))

@@ -46,3 +46,4 @@ emms/
 projectile-bookmarks.eld
 history
 *.bak
+/cedet-bzr

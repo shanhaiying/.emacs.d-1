@@ -1,4 +1,5 @@
 ;; (require 'popwin)
+;; ;; popwin conflicts with gud-mode
 
 ;; ;; (setq popwin:special-display-config nil)
 ;; (setq display-buffer-function 'popwin:display-buffer)

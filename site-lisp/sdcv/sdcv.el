@@ -287,7 +287,7 @@ And show information use tooltip."
   (interactive)
   ;; Display simple translate result.
   (sdcv-search-simple (or word (sdcv-prompt-input)))
-  ;; I set this delay for fast finger. ;)
+  ;; I set this delay for fast finger.
   (sit-for 0.5))
 
 (defun sdcv-quit ()
@@ -356,9 +356,13 @@ The result will be displayed in buffer named with
     (setq buffer-read-only nil)
     (erase-buffer)
     (let* ((process
-            (start-process
-             "sdcv" sdcv-buffer-name "sdcv"
-             (sdcv-search-witch-dictionary word sdcv-dictionary-complete-list))))
+            ;; (start-process
+            ;;  "sdcv" sdcv-buffer-name "sdcv"
+            ;;  (sdcv-search-witch-dictionary word sdcv-dictionary-complete-list))
+            (apply 'start-process
+                   (append `("sdcv" ,sdcv-buffer-name "sdcv")
+                           (sdcv-search-args word sdcv-dictionary-complete-list))
+                   )))
       (set-process-sentinel
        process
        (lambda (process signal)
@@ -366,6 +370,10 @@ The result will be displayed in buffer named with
            (unless (eq (current-buffer) (sdcv-get-buffer))
              (sdcv-goto-sdcv))
            (sdcv-mode-reinit)))))))
+
+(defun sdcv-search-args (word dict-list)
+  (append (apply 'append (mapcar (lambda (d) `("-u" ,d)) dict-list))
+          (list "-n" word)))
 
 (defun sdcv-search-simple (&optional word)
   "Search WORD simple translate result."
@@ -389,7 +397,7 @@ Argument DICTIONARY-LIST the word that need transform."
      (mapconcat
       (lambda (dict)
         (setq cmd (format "sdcv -n -u \"%s\" \"%s\"" dict word))
-        (shell-command-to-string cmd))
+	(shell-command-to-string cmd))
       dictionary-list "\n")
      )))
 

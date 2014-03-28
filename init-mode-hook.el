@@ -139,6 +139,6 @@
              (setq cperl-continued-brace-offset -4)
              (abbrev-mode t)))
 
-(add-auto-mode 'tcl-mode "Portfile\\'")
+(add-to-list 'auto-mode-alist '("Portfile\\'" . tcl-mode))
 
 (provide 'init-mode-hook)

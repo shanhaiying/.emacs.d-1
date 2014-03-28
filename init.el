@@ -20,15 +20,6 @@
 (setq *emacs24* (and (not *xemacs*) (or (>= emacs-major-version 24))) )
 
 ;; ----------------------------------------------------------------------------
-;;  Functions (load all files in defuns-dir)
-;;  Copied from https://github.com/magnars/.emacs.d/blob/master/init.el
-;; ----------------------------------------------------------------------------
-(setq defuns-dir (expand-file-name "~/.emacs.d/defuns"))
-(dolist (file (directory-files defuns-dir t "\\w+"))
-  (when (file-regular-p file)
-      (load file)))
-
-;; ----------------------------------------------------------------------------
 ;;  Load configs for specific features and modes
 ;; ----------------------------------------------------------------------------
 ;; (require 'init-modeline)
@@ -36,9 +27,12 @@
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
+(require 'init-cedet)			;from official bzr
+;; (require 'init-cedet-buildin)
+
 (require 'cl-lib)
-(require 'init-compat)
-(require 'init-utils)
+;; (require 'init-compat)
+;; (require 'init-utils)
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 
 ;; win32 auto configuration, assuming that cygwin is installed at "c:/cygwin"
@@ -60,17 +54,16 @@
 ;; -----------------------------------------------------------------
 ;;  basic configs
 ;; -----------------------------------------------------------------
-(require 'init-basic)
 (require 'init-fonts)
 (require 'init-popup)
-(require 'init-smartparens)
+(require 'init-parens)
 (require 'init-frame-hooks)
 (require 'init-xterm)
 ;; (require 'init-osx-keys)
 ;; (require 'init-gui-frames)
 ;; (require 'init-maxframe)
 (require 'init-proxies)
-(require 'init-dired)
+;; (require 'init-dired)
 (require 'init-isearch)
 (require 'init-uniquify)
 (require 'init-ibuffer)
@@ -84,7 +77,7 @@
 (require 'init-windows)
 (require 'init-sessions)
 ;; (require 'init-growl)
-(require 'init-editing-utils)           ;use with evil-mode
+;; (require 'init-editing-utils)           ;use with evil-mode
 (require 'init-bm)
 (require 'init-git)
 (require 'init-emacspeak)
@@ -92,35 +85,34 @@
 (require 'init-ibus)
 ;; (if (not (boundp 'light-weight-emacs)) (require 'init-eim))
 
+;; (require 'init-ctags)
+(require 'init-gtags)
 (require 'init-speedbar)
 
-(require 'init-ctags)
-(require 'init-gtags)
-(require 'init-semantic)
-
 (require 'init-misc)
+(require 'init-auto-insert)
 
 ;; -----------------------------------------------------------------
 ;;  mode configs
 ;; -----------------------------------------------------------------
-(require 'init-crontab)
-(require 'init-textile)
+;; (require 'init-crontab)
+;; (require 'init-textile)
 (require 'init-markdown)
-(require 'init-csv)
-(require 'init-erlang)
+;; (require 'init-csv)
+;; (require 'init-erlang)
 (require 'init-javascript)
 (require 'init-sh)
-(require 'init-php)
+;; (require 'init-php)
 (require 'init-org)
-(require 'init-org-mime)
+;; (require 'init-org-mime)
 (require 'init-css)
-(require 'init-haml)
+;; (require 'init-haml)
 (require 'init-python-mode)
-(require 'init-haskell)
-(require 'init-ruby-mode)
-(require 'init-yari);; yari.el provides an Emacs frontend to Ruby's `ri' documentation tool. It offers lookup and completion.
-(require 'init-lua-mode)
-(require 'init-term-mode)
+;; (require 'init-haskell)
+;; (require 'init-ruby-mode)
+;; (require 'init-yari);; yari.el provides an Emacs frontend to Ruby's `ri' documentation tool. It offers lookup and completion.
+;; (require 'init-lua-mode)
+;; (require 'init-term-mode)
 (require 'init-web-mode)
 (require 'init-tex-mode)
 (require 'init-lisp)
@@ -128,7 +120,7 @@
 
 (require 'init-cc-mode)
 (require 'init-cmake-mode)
-(require 'init-csharp-mode)
+;; (require 'init-csharp-mode)
 (require 'init-linum-mode)
 
 (require 'init-mode-hook)
@@ -146,19 +138,19 @@
     (require 'init-auto-complete) ; after init-yasnippeta to override TAB
   )
 
-(require 'init-org2blog)
+;; (require 'init-org2blog)
 
 (when *spell-check-support-enabled*
   (require 'init-spelling))
 
-(require 'init-marmalade)
+;; (require 'init-marmalade)
 
 ;; Use bookmark instead
 
-;; (require 'init-rcirc)                   ;IRC, Internet Relay Communication
+(require 'init-rcirc)                   ;IRC, Internet Relay Communication
 ;; (require 'init-delicious)               ;make startup slow, I don't use delicious in w3m
 (require 'init-emacs-w3m)
-(require 'init-thing-edit)
+;; (require 'init-thing-edit)
 (require 'init-which-func)
 (require 'init-keyfreq)
 ;; (require 'init-gist)
@@ -179,9 +171,9 @@
 ;; (require 'init-workgroups2)
 
 (require 'init-move-window-buffer)
-(require 'init-slime)
-(require 'init-stripe-buffer)
-(require 'init-elnode)
+;; (require 'init-slime)
+;; (require 'init-stripe-buffer)
+;; (require 'init-elnode)
 
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
