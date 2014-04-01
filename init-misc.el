@@ -229,14 +229,20 @@ Like eclipse's Ctrl+Alt+F."
 ;; eshell
 ;; ---------------------------------------------------------------
 ;;open (e)shell
-(defun open-eshell-other-buffer ()
+;; (defun open-eshell-other-buffer ()
+;;   "Open eshell in other buffer"
+;;   (interactive)
+;;   (split-window-vertically)
+;;   (eshell))
+
+(defun eshell-ob ()
   "Open eshell in other buffer"
   (interactive)
   (split-window-vertically)
   (eshell))
 
-(global-set-key [(f6)] 'open-eshell-other-buffer) ;open eshell in other buffer
-(global-set-key [C-f6] 'eshell)                   ;open eshell in current buffer
+;; (global-set-key [(f6)] 'open-eshell-other-buffer) ;open eshell in other buffer
+;; (global-set-key [C-f6] 'eshell)                   ;open eshell in current buffer
 
 (when *win32*
   ;; resize frame
@@ -873,9 +879,10 @@ The full path into relative path insert it as a local file link in org-mode"
 (setq sdcv-dictionary-simple-list '("朗道英汉字典5.0"))
 (setq sdcv-dictionary-complete-list
       '(
-        "朗道英汉字典5.0"
-        "懒虫简明英汉词典"
+        ;; "朗道英汉字典5.0"
+        ;; "懒虫简明英汉词典"
         "牛津现代英汉双解词典"
+	"21世纪英汉汉英双向词典"
         "WordNet"))
 (autoload 'sdcv-search-pointer+ "sdcv" "show word explanation in buffer" t)
 (autoload 'sdcv-search-input "sdcv" "show word explanation in tooltip" t)
