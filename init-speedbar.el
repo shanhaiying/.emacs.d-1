@@ -14,7 +14,7 @@
 ;; regular speedbar config
 (setq speedbar-show-unknown-files t)
 (setq speedbar-verbosity-level 0)
-(setq speedbar-frame-parameters (quote ((minibuffer) (width . 30))))
+(setq speedbar-frame-parameters (quote ((minibuffer) (width . 35))))
 ;; (setq speedbar-use-images nil)
 
 (defun speedbar-edit-line-and-switch-to-window ()

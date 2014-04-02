@@ -24,6 +24,7 @@
 (put 'narrow-to-page 'disabled nil)
 (put 'narrow-to-defun 'disabled nil)
 
+(global-set-key [C-f1] 'manual-entry)
 
 ;; workspace
 (setq default-directory "~/projects/")

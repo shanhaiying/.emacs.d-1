@@ -53,10 +53,6 @@ If set/leave chinese-font-size to nil, it will follow english-font-size"
                         zh-font))))
 
 (setq face-font-rescale-alist '(("Microsoft Yahei" . 1.2) ("WenQuanYi Zen Hei" . 1.2)))
-;; font setting here
-(my-set-font
- '("Monospace" "Monaco" "Consolas" "Ubuntu Mono" "DejaVu Sans Mono" "Courier New") ":pixelsize=15"
- '("文泉驿等宽微米黑" "Microsoft Yahei" "黑体" "新宋体" "宋体"))
 
 ;; (defvar emacs-english-font "Droid Sans Mono"
 ;;   "The font name of English.")

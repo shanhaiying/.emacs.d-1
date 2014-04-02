@@ -71,7 +71,9 @@
                              (mode . gnus-summary-mode)
                              (mode . gnus-article-mode)
                              (name . "^\\.bbdb$")
-                             (name . "^\\.newsrc-dribble")))))))
+                             (name . "^\\.newsrc-dribble")))
+                    ("manual" (or
+                               (mode . Man-mode)))))))
      (add-hook 'ibuffer-mode-hook (lambda ()
                                     (ibuffer-vc-set-filter-groups-by-vc-root)
                                     (unless (eq ibuffer-sorting-mode 'filename/process)
