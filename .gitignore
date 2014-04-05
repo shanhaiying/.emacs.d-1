@@ -47,4 +47,3 @@ projectile-bookmarks.eld
 history
 *.bak
 /cedet-bzr
-init.el

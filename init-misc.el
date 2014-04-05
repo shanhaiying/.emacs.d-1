@@ -26,6 +26,8 @@
 
 (global-set-key [C-f1] 'manual-entry)
 
+(global-set-key (kbd "M-m") 'set-mark-command)
+
 ;; workspace
 (setq default-directory "~/projects/")
 ;; (setq default-directory "~/.emacs.d/dotemacs")
@@ -677,9 +679,9 @@ point reaches the beginning or end of the buffer, stop there."
 
 ;; }}
 
-;; vimrc
-(require 'vimrc-mode)
-(add-to-list 'auto-mode-alist '("\\.?vim\\(rc\\)?$" . vimrc-mode))
+;; ;; vimrc
+;; (require 'vimrc-mode)
+;; (add-to-list 'auto-mode-alist '("\\.?vim\\(rc\\)?$" . vimrc-mode))
 
 (require 'highlight-symbol)
 

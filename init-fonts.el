@@ -1,7 +1,7 @@
 ;; text scale
-;; windows
-(global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
-(global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
+;; ;; windows
+;; (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
+;; (global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
 ;; linux
 (global-set-key (kbd "<C-mouse-5>") 'text-scale-decrease)
 (global-set-key (kbd "<C-mouse-4>") 'text-scale-increase)
@@ -52,7 +52,7 @@ If set/leave chinese-font-size to nil, it will follow english-font-size"
                         charset
                         zh-font))))
 
-(setq face-font-rescale-alist '(("Microsoft Yahei" . 1.2) ("WenQuanYi Zen Hei" . 1.2)))
+;; (setq face-font-rescale-alist '(("Microsoft Yahei" . 1.2) ("WenQuanYi Zen Hei" . 1.2)))
 
 ;; (defvar emacs-english-font "Droid Sans Mono"
 ;;   "The font name of English.")

@@ -21,7 +21,7 @@
         (bm-previous)
       (bm-next)))
   (global-set-key (kbd "<C-f2>") 'bm-toggle)
-  (global-set-key [M-f2] 'bm-toggle)
+  ;; (global-set-key [M-f2] 'bm-toggle)
   (global-set-key (kbd "ESC <f2>") 'bm-toggle) ; putty
   (global-set-key (kbd "<f2>")   'bm-next-or-previous)
   (global-set-key (kbd "<S-f2>") 'bm-previous)

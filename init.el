@@ -55,7 +55,7 @@
 ;;  basic configs
 ;; -----------------------------------------------------------------
 (require 'init-fonts)
-(require 'init-popup)
+(if (not *cygwin*) (require 'init-popup))
 (require 'init-parens)
 (require 'init-frame-hooks)
 (require 'init-xterm)
@@ -125,7 +125,7 @@
 
 (require 'init-mode-hook)
 
-(require 'init-xref)
+;; (require 'init-xref)
 
 ;; (require 'init-better-registers) ; C-x j - jump to register
 (require 'init-zencoding-mode) ;emmet-mode, behind init-better-register to override C-j
