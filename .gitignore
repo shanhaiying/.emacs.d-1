@@ -47,3 +47,4 @@ projectile-bookmarks.eld
 history
 *.bak
 /cedet-bzr
+session.*

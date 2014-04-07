@@ -150,18 +150,24 @@ Like eclipse's Ctrl+Alt+F."
   "Format a c/c++ file."
   (interactive "F")
   (if (cxx-file-p file)
-      (let ((buffer (find-file-noselect file))) ;; open buffer
+      (let ((get-fb (get-file-buffer file))
+	    (buffer (find-file-noselect file))) ;; open buffer
         (save-excursion
           (set-buffer buffer)
           ;; (mark-whole-buffer)
           (when (fboundp 'whitespace-cleanup)
             (whitespace-cleanup))
+	  ;; (c-set-style "stroustrup")
           (untabify (point-min) (point-max))
           (indent-region (point-min) (point-max))
           (save-buffer)
-          (kill-buffer)
-          (message "Formated c++ file:%s" file)))
-    (message "%s isn't a c++ file" file)))
+	  (if (not get-fb)
+	      (kill-buffer))
+          ;; (kill-buffer)
+          ;; (message "Formated c++ file:%s" file)
+	  ))
+    ;; (message "%s isn't a c++ file" file)
+    ))
 
 (defun format-cxx-dired (dirname)
   "Format all c/c++ file in a directory."
@@ -602,8 +608,8 @@ point reaches the beginning or end of the buffer, stop there."
 ;; (global-set-key (kbd "C-c c")  'copy-file-and-rename-buffer)
 
 ;; @see http://wenshanren.org/?p=298
-(defun wenshan-edit-current-file-as-root ()
-  "Edit the file that is associated with the current buffer as root"
+(defun sudo-edit-current-file ()
+  "Edit the current file in another buffer as root"
   (interactive)
   (if (buffer-file-name)
       (progn
