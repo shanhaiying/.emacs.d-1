@@ -871,10 +871,6 @@ The full path into relative path insert it as a local file link in org-mode"
 (global-set-key [C-f7] 'smart-compile)
 ;; }}
 
-;; ;; auto-pair
-;; (require 'autopair)
-;; (autopair-global-mode)
-
 (require 'undo-tree)
 ;; (global-undo-tree-mode)
 ;; (defalias 'redo 'undo-tree-redo)
