@@ -45,7 +45,7 @@ the directories in the INCLUDE environment variable."
         (win1 (split-window nil ( / ( * (window-height) 8) 10)))
         (win2 (split-window nil ( / ( * (window-height) 3) 8)))
         ;; (win3 (split-window nil ( - ( / ( * (window-width) 2) 3) 1) 'right))
-        (win3 (split-window nil (- (window-width) 40) 'right))
+        (win3 (split-window nil (- (window-width) 40) 'right)) ;input/output
 	)
     (gdb-set-window-buffer (gdb-get-buffer-create 'gdb-inferior-io) nil win3)
     (select-window win2)
@@ -59,7 +59,7 @@ the directories in the INCLUDE environment variable."
          ;; can't find a source file.
          (list-buffers-noselect))))
     (setq gdb-source-window (selected-window))
-    (let ((win4 (split-window nil (- (window-width) 38) 'right)))
+    (let ((win4 (split-window nil (- (window-width) 37) 'right))) ;locals
       (gdb-set-window-buffer (gdb-locals-buffer-name) nil win4))
     (select-window win1)
     (gdb-set-window-buffer (gdb-stack-buffer-name))
@@ -178,7 +178,7 @@ the directories in the INCLUDE environment variable."
   (interactive)
   (with-current-buffer gud-comint-buffer (comint-skip-input))
   ;; (set-process-query-on-exit-flag (get-buffer-process gud-comint-buffer) nil)
-  ;; (kill-buffer gud-comint-buffer))
+  ;; (kill-buffer gud-comint-buffer)
   (dolist (buffer '(gdba gdb-stack-buffer gdb-breakpoints-buffer
                          gdb-threads-buffer gdb-inferior-io
                          gdb-registers-buffer gdb-memory-buffer
@@ -186,7 +186,7 @@ the directories in the INCLUDE environment variable."
     (when (gdb-get-buffer buffer)
       (let ((proc (get-buffer-process (gdb-get-buffer buffer))))
         (when proc (set-process-query-on-exit-flag proc nil)))
-      (kill-buffer (gdb-get-buffer buffer)))))
+      (kill-buffer (gdb-get-buffer buff)))))
 
 (defadvice gdb (before ecb-deactivate activate)
   "if ecb activated, deactivate it."
