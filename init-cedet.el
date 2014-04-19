@@ -132,7 +132,7 @@ the mru bookmark stack."
 
   ;; (local-set-key "\C-cj" 'semantic-ia-fast-jump)
   ;; (local-set-key "\C-cb" 'semantic-ia-fast-jump-back)
-  (local-set-key "\C-c\C-c" 'semantic-ia-show-doc)
+  (local-set-key "\C-c\C-d" 'semantic-ia-show-doc)
   (local-set-key "\C-c\C-s" 'semantic-ia-show-summary)
   ;; (local-set-key "\C-cp" 'semantic-analyze-proto-impl-toggle)
   (local-set-key [f12] 'semantic-ia-fast-jump-or-back)

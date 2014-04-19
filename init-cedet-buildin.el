@@ -64,10 +64,11 @@
   ;; (global-semantic-decoration-mode 1)
   (require 'semantic/decorate/include nil 'noerror)
   (semantic-toggle-decoration-style "semantic-tag-boundary" -1)
-  (global-semantic-highlight-edits-mode (if window-system 1 -1))
+  ;; (global-semantic-highlight-edits-mode (if window-system 1 -1))
   (global-semantic-show-unmatched-syntax-mode 1)
   (global-semantic-show-parser-state-mode 1)
   (global-ede-mode 1)
+  (ede-enable-generic-projects)
   (when (executable-find "global")
     (semanticdb-enable-gnu-global-databases 'c-mode)
     (semanticdb-enable-gnu-global-databases 'c++-mode)
@@ -131,7 +132,7 @@ the mru bookmark stack."
     (mouse-set-point ev)
     (semantic-ia-fast-jump (point)))
   ;; (define-key semantic-mode-map [(control tab)] 'semantic-ia-complete-symbol-menu)
-  (define-key semantic-mode-map "\C-c\C-c" 'semantic-ia-show-doc)
+  (define-key semantic-mode-map "\C-c\C-d" 'semantic-ia-show-doc)
   ;; (define-key semantic-mode-map "\C-c\C-s" 'semantic-ia-show-summary)
   (define-key semantic-mode-map [f12] 'semantic-ia-fast-jump-or-back)
   (define-key semantic-mode-map [C-f12] 'semantic-mrub-switch-tags)
@@ -154,10 +155,7 @@ the mru bookmark stack."
 ;; (global-semantic-show-unmatched-syntax-mode t)
 
 ;; SRecode
-(global-srecode-minor-mode 1)
+;; (global-srecode-minor-mode 1)
 
-;; EDE
-(global-ede-mode 1)
-(ede-enable-generic-projects)
 
 (provide 'init-cedet-buildin)
