@@ -15,14 +15,10 @@
 
 (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
 (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
-(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-(add-hook 'minibuffer-setup-hook      #'enable-paredit-mode)
 (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
-(add-hook 'TeX-mode-hook              #'enable-paredit-mode)
-(add-hook 'markdown-mode-hook         #'enable-paredit-mode)
 
 ;; electric-pair-mode
 (electric-pair-mode nil)
@@ -126,9 +122,11 @@
 ;; Using with paredit-mode
 ;; Autopair doesn’t make much sense when paredit-mode is turned on, so it actually defers to paredit-mode when that is installed and enabled.
 ;; Using autopair-global-mode is thus safe but anyway the following code sample turns on autopairs for the modes listed in autopair-modes, but disables it when paredit-mode is turned on:
-(defvar autopair-modes '(c-mode c++-mode shell-script-mode))
+(defvar autopair-modes '(c-mode c++-mode shell-script-mode TeX-mode markdown-mode))
 (defun turn-on-autopair-mode () (autopair-mode 1))
 (dolist (mode autopair-modes) (add-hook (intern (concat (symbol-name mode) "-hook")) 'turn-on-autopair-mode))
+(add-hook 'minibuffer-setup-hook 'turn-on-autopair-mode)
+(add-hook 'eval-expression-minibuffer-setup-hook 'turn-on-autopair-mode)
 
 (require 'paredit)
 (defadvice paredit-mode (around disable-autopairs-around (arg))

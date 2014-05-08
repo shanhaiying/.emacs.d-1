@@ -690,6 +690,10 @@ point reaches the beginning or end of the buffer, stop there."
 ;; (add-to-list 'auto-mode-alist '("\\.?vim\\(rc\\)?$" . vimrc-mode))
 
 (require 'highlight-symbol)
+(add-hook 'prog-mode-hook (lambda () (highlight-symbol-mode)))
+  (setq highlight-symbol-on-navigation-p t)
+  (global-set-key [f3] 'highlight-symbol-next)
+  (global-set-key [(shift f3)] 'highlight-symbol-prev)
 
 ;; {{ ack
 (autoload 'ack-same "full-ack" nil t)

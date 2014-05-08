@@ -19,7 +19,7 @@
             (c-set-style "stroustrup")))
 
 (add-to-list 'auto-mode-alist '("\\.[cC][pP][pP]\\'" . c++-mode))
-(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.[hH][pP][pP]\\'" . c++-mode))
 (add-hook 'c++-mode-hook
           (lambda ()
             (undo-tree-mode 1)
