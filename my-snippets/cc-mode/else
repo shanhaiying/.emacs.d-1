@@ -1,7 +1,6 @@
 #contributor : Meteor Liu <meteor1113@gmail.com>
 #name : else { ... }
 # --
-else
-{
+else {
     $0
 }
