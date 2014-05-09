@@ -145,6 +145,7 @@ the mru bookmark stack."
   (local-set-key [f12] 'semantic-ia-fast-jump-or-back)
   (local-set-key [C-f12] 'semantic-mrub-switch-tags)
   (local-set-key [S-f12] 'semantic-ia-fast-jump-back)
+  (local-set-key (kbd "ESC <f12>") 'semantic-ia-fast-jump-back)
   ;; (local-set-key (kbd "ESC ESC <f12>")
   ;;   'semantic-ia-fast-jump-back)
   ;; (local-set-key [S-f12] 'pop-global-mark)

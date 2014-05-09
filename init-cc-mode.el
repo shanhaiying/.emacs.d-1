@@ -222,6 +222,7 @@ the directories in the INCLUDE environment variable."
                                              (gud-go))))
      (define-key gud-minor-mode-map [f5] 'gud-go)
      (define-key gud-minor-mode-map [S-f5] 'gud-kill)
+     (define-key gud-minor-mode-map (kbd "ESC <f5>") 'gud-kill)
      (define-key gud-minor-mode-map [f17] 'gud-kill) ; S-f5
      (define-key gud-minor-mode-map [f8] 'gud-print)
      (define-key gud-minor-mode-map [C-f8] 'gud-pstar)
@@ -232,7 +233,8 @@ the directories in the INCLUDE environment variable."
      (define-key gud-minor-mode-map [C-f10] 'gud-until)
      (define-key gud-minor-mode-map [C-S-f10] 'gud-jump)
      (define-key gud-minor-mode-map [f11] 'gud-step)
-     (define-key gud-minor-mode-map [C-f11] 'gud-finish)))
+     (define-key gud-minor-mode-map [S-f11] 'gud-finish)
+     (define-key gud-minor-mode-map (kbd "ESC <f11>") 'gud-finish)))
 
 
 ;;===== hack gud-mode begin
