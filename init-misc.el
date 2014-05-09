@@ -691,9 +691,10 @@ point reaches the beginning or end of the buffer, stop there."
 
 (require 'highlight-symbol)
 (add-hook 'prog-mode-hook (lambda () (highlight-symbol-mode)))
-  (setq highlight-symbol-on-navigation-p t)
-  (global-set-key [f3] 'highlight-symbol-next)
-  (global-set-key [(shift f3)] 'highlight-symbol-prev)
+(setq highlight-symbol-on-navigation-p t)
+(global-set-key [f3] 'highlight-symbol-next)
+(global-set-key [(shift f3)] 'highlight-symbol-prev)
+(custom-set-faces '(highlight-symbol-face ((t (:background "gray20")))))
 
 ;; {{ ack
 (autoload 'ack-same "full-ack" nil t)
