@@ -48,3 +48,4 @@ history
 *.bak
 /cedet-bzr
 session.*
+/debug-init.el

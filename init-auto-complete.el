@@ -3,8 +3,8 @@
 ;; (ac-config-default)
 
 (when (and (> emacs-major-version 21)
-           (require 'auto-complete nil 'noerror)
-           (require 'auto-complete-config nil 'noerror))
+           (require 'auto-complete)
+           (require 'auto-complete-config))
   (setq ac-use-comphist nil)
   (define-key ac-completing-map [return] 'ac-complete)
   (setq ac-modes
@@ -41,6 +41,7 @@
     (unless (null ac-path)
       (let ((dict-dir (expand-file-name "dict" (file-name-directory ac-path))))
         (add-to-list 'ac-dictionary-directories dict-dir))))
+  (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
   (defadvice ac-update-word-index-1 (around exclude-hidden-buffer activate)
     "Exclude hidden buffer, hack for eim."
     (unless (string= (substring (buffer-name) 0 1) " ")
@@ -89,6 +90,6 @@
     (add-to-list 'ac-sources 'ac-source-yasnippet))
   (add-hook 'auto-complete-mode-hook 'ac-yasnippet-setup))
 
-(require 'auto-complete-auctex)         ;Dependencies yasnippet 0.6.1 / auto-complete 1.4
+;; (require 'auto-complete-auctex)         ;Dependencies yasnippet 0.6.1 / auto-complete 1.4
 
 (provide 'init-auto-complete)
