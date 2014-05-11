@@ -1,10 +1,6 @@
 ;;----------------------------------------------------------------------------
 ;; Misc config - yet to be placed in separate files
 ;;----------------------------------------------------------------------------
-;; user information
-(setq user-full-name "zhenglj")
-(setq user-mail-address "zhenglj89@gmail.com")
-
 (setq suggest-key-bindings-1 t)    ;suggest-key-bindings in minibuffer
 
 (fset 'yes-or-no-p 'y-or-n-p)

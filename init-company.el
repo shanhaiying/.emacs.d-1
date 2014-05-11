@@ -3,7 +3,8 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;; does not matter, I never use this hotkey
-(global-set-key (kbd "TAB") 'company-complete)
+;; (global-set-key (kbd "TAB") 'company-complete)
+;; (global-set-key (kbd "C-c o") 'company-complete)
 (setq company-require-match nil)
 
 (if (fboundp 'evil-declare-change-repeat)

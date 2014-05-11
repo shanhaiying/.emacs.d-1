@@ -22,7 +22,7 @@
 ;; ----------------------------------------------------------------------------
 ;;  Load configs for specific features and modes
 ;; ----------------------------------------------------------------------------
-;; (require 'init-modeline)
+(require 'init-modeline)
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific features and modes
