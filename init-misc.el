@@ -24,10 +24,6 @@
 
 (global-set-key (kbd "M-m") 'set-mark-command)
 
-;; workspace
-(setq default-directory "~/projects/")
-;; (setq default-directory "~/.emacs.d/dotemacs")
-
 (if (not (file-exists-p (expand-file-name "~/.backups")))
     (make-directory (expand-file-name "~/.backups")))
 (setq

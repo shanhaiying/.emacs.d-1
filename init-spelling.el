@@ -33,7 +33,7 @@
 (put 'web-mode 'flyspell-mode-predicate 'web-mode-flyspell-verify)
 
 (require 'flyspell-lazy)
-(flyspell-lazy-mode 1)
+;; (flyspell-lazy-mode 1)
 ;; better performance
 (setq flyspell-issue-message-flag nil)
 
