@@ -1,4 +1,5 @@
 (require 'yasnippet)
+;; (yas-global-mode 1) 
 
 ;; my private snippets
 (setq my-snippets (expand-file-name "~/.emacs.d/my-snippets"))

@@ -1,8 +1,21 @@
+;; (require 'auto-complete)
 ;; (require 'auto-complete-config)
 ;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict")
 ;; (ac-config-default)
 
-(when (and (> emacs-major-version 21)
+;; (setq-default ac-sources '(ac-source-yasnippet
+;; 			   ac-source-filename
+;; 			   ac-source-words-in-all-buffer
+;; 			   ac-source-functions
+;; 			   ac-source-variables
+;; 			   ac-source-symbols
+;; 			   ac-source-features
+;; 			   ac-source-abbrev
+;; 			   ac-source-words-in-same-mode-buffers
+;; 			   ac-source-dictionary))
+
+(when (and (> emacs-major-version 22)
            (require 'auto-complete)
            (require 'auto-complete-config))
   (setq ac-use-comphist nil)
