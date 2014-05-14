@@ -5,7 +5,7 @@
 ;; does not matter, I never use this hotkey
 ;; (global-set-key (kbd "TAB") 'company-complete)
 ;; (global-set-key (kbd "C-c o") 'company-complete)
-(global-set-key (kbd "M-n") 'company-complete)
+(define-key company-mode-map (kbd "M-n") 'company-complete)
 (setq company-require-match nil)
 
 (if (fboundp 'evil-declare-change-repeat)

@@ -37,27 +37,27 @@
   (defadvice bm-next (after pulse-advice activate)
     "After bm-next, pulse the line the cursor lands on."
     (when (and (boundp 'pulse-command-advice-flag) pulse-command-advice-flag
-               (interactive-p))
+               (called-interactively-p))
       (pulse-momentary-highlight-one-line (point))))
   (defadvice bm-previous (after pulse-advice activate)
     "After bm-previous, pulse the line the cursor lands on."
     (when (and (boundp 'pulse-command-advice-flag) pulse-command-advice-flag
-               (interactive-p))
+               (called-interactively-p))
       (pulse-momentary-highlight-one-line (point))))
   (defadvice bm-next-or-previous (after pulse-advice activate)
     "After bm-next-or-previous, pulse the line the cursor lands on."
     (when (and (boundp 'pulse-command-advice-flag) pulse-command-advice-flag
-               (interactive-p))
+               (called-interactively-p))
       (pulse-momentary-highlight-one-line (point))))
   (defadvice bm-next-mouse (after pulse-advice activate)
     "After bm-next-mouse, pulse the line the cursor lands on."
     (when (and (boundp 'pulse-command-advice-flag) pulse-command-advice-flag
-               (interactive-p))
+               (called-interactively-p))
       (pulse-momentary-highlight-one-line (point))))
   (defadvice bm-previous-mouse (after pulse-advice activate)
     "After bm-previous-mouse, pulse the line the cursor lands on."
     (when (and (boundp 'pulse-command-advice-flag) pulse-command-advice-flag
-               (interactive-p))
+               (called-interactively-p))
       (pulse-momentary-highlight-one-line (point)))))
 
 (provide 'init-bm)
