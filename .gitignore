@@ -46,6 +46,7 @@ emms/
 projectile-bookmarks.eld
 history
 *.bak
-/cedet-bzr
+/cedet-bzr/
 session.*
 /debug-init.el
+/tmp/
