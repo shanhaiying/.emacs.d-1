@@ -17,6 +17,7 @@
 ;; (add-to-list 'popwin:special-display-config '("*Warnings*"))
 ;; (add-to-list 'popwin:special-display-config '(" *auto-async-byte-compile*" :noselect))
 
+(require 'popup)
 (require 'popup-pos-tip)
 (defadvice popup-tip
   (around popup-pos-tip-wrapper (string &rest args) activate)
