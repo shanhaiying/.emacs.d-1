@@ -3,9 +3,11 @@
 (add-to-list 'which-func-modes 'c-mode)
 (add-to-list 'which-func-modes 'c++-mode)
 (add-to-list 'which-func-modes 'java-mode)
+(add-to-list 'which-func-modes 'python-mode)
 ;; (add-to-list 'which-func-modes 'lisp-mode)
 ;; (add-to-list 'which-func-modes 'emacs-lisp-mode)
 (which-func-mode 1)
+(custom-set-faces '(which-func ((t (:foreground "cyan")))))
 
 ;; @see http://emacs-fu.blogspot.com/2011/08/customizing-mode-line.html
 ;; But I need global-mode-string,
@@ -84,6 +86,12 @@
 	   "  " mode-line-position
 	   ;; "  (%02l,%02c) "
 	   (vc-mode vc-mode)
-	   " (%m) " mode-line-misc-info mode-line-end-spaces))))
+	   " ("
+	   (:eval (propertize "%m" 'face nil
+	   		      'help-echo buffer-file-coding-system))
+	   ;; mode-line-modes
+	   ("" mode-line-process)
+	   ") "
+	   mode-line-misc-info mode-line-end-spaces))))
 
 (provide 'init-modeline)

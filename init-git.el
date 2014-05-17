@@ -67,7 +67,7 @@
   "enable either git-gutter-mode of linum-mode"
   (interactive)
   (let ((git-gutter:force t))
-    (if (compare-strings (substring-no-properties vc-mode 1 4) 1 4 "Git" 1 4)
+    (if (compare-strings (substring-no-properties vc-mode 1 4) 0 3 "Git" 0 3)
 	(if git-gutter:enabled
 	    (progn
 	      (git-gutter:clear)
