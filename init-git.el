@@ -63,7 +63,25 @@
 ;; If you enable global minor mode
 (global-git-gutter-mode t)
 
-(global-set-key (kbd "C-x C-g") 'git-gutter:toggle)
+(defun toggle-gutter-or-linum ()
+  "enable either git-gutter-mode of linum-mode"
+  (interactive)
+  (let ((git-gutter:force t))
+    (if (compare-strings (substring-no-properties vc-mode 1 4) 1 4 "Git" 1 4)
+	(if git-gutter:enabled
+	    (progn
+	      (git-gutter:clear)
+	      (setq git-gutter-mode nil)
+	      (setq linum-mode t))
+	  (progn
+	    (git-gutter)
+	    (setq linum-mode nil)
+	    (setq git-gutter-mode t))))
+    (setq git-gutter:toggle-flag git-gutter:enabled)
+    (force-mode-line-update)))
+
+(global-set-key (kbd "C-x g") 'toggle-gutter-or-linum)
+;; (global-set-key (kbd "C-x g") 'git-gutter:toggle)
 (global-set-key (kbd "C-x v =") 'git-gutter:popup-hunk)
 
 ;; Jump to next/previous hunk
@@ -210,13 +228,13 @@ This command makes sense from a `magit-file-log' buffer. "
   (magit-section-action (item info "visit")
     ((commit)
      (let ((filename (expand-file-name (car magit-refresh-args)
-                                       (concat (magit-git-dir) "../"))))
+				       (concat (magit-git-dir) "../"))))
        (if (file-readable-p filename)
-           (progn
-             (find-file-noselect filename)
-             (with-current-buffer (find-buffer-visiting filename)
-               (vc-revision-other-window info)))
-         (message "not able to access %s" filename))))))
+	   (progn
+	     (find-file-noselect filename)
+	     (with-current-buffer (find-buffer-visiting filename)
+	       (vc-revision-other-window info)))
+	 (message "not able to access %s" filename))))))
 
 (eval-after-load "magit.el"
   '(define-key magit-log-mode-map (kbd "C-c o") 'my-magit-visit-file-at-commit))
