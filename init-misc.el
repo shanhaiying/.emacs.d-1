@@ -897,10 +897,10 @@ The full path into relative path insert it as a local file link in org-mode"
 ;; (global-set-key (kbd "<f3> s") 'sdcv-search-pointer+)
 ;; (global-set-key (kbd "<f3> S") 'sdcv-search-input)
 
-;; recent-jump
-(when (require 'recent-jump nil 'noerror)
-  (global-set-key (kbd "<M-S-left>") 'recent-jump-jump-backward)
-  (global-set-key (kbd "<M-S-right>") 'recent-jump-jump-forward))
+;; ;; recent-jump
+;; (when (require 'recent-jump nil 'noerror)
+;;   (global-set-key (kbd "<M-S-left>") 'recent-jump-jump-backward)
+;;   (global-set-key (kbd "<M-S-right>") 'recent-jump-jump-forward))
 
 ;; vlf
 (autoload 'vlf "vlf" "View a Large File in Emacs." t)
