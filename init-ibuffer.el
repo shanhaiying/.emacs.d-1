@@ -59,6 +59,8 @@
 				(mode . gitignore-mode)
 				(mode . conf-mode)
 				(mode . conf-unix-mode)
+				(mode . conf-windows-mode)
+				(mode . conf-space-mode)
                                 ))
                     ("emacs" (or
                               (name . "^\\*scratch\\*$")

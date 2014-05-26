@@ -20,6 +20,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.[cC][pP][pP]\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.[hH][pP][pP]\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.[hH]\\'" . c++-mode))
 (add-hook 'c++-mode-hook
           (lambda ()
             (undo-tree-mode 1)
@@ -104,6 +105,7 @@
             (flyspell-mode -1)
             ))
 
+(add-to-list 'auto-mode-alist '("/[mM]ake\\." . makefile-gmake-mode))
 (add-hook 'makefile-mode-hook
           (lambda ()
             (undo-tree-mode 1)

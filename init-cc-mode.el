@@ -59,7 +59,7 @@ the directories in the INCLUDE environment variable."
          ;; can't find a source file.
          (list-buffers-noselect))))
     (setq gdb-source-window (selected-window))
-    (let ((win4 (split-window nil (- (window-width) 40) 'right))) ;locals
+    (let ((win4 (split-window nil (/ (* (window-width) 3) 4) 'right))) ;locals
       (gdb-set-window-buffer (gdb-locals-buffer-name) nil win4))
     (select-window win1)
     (gdb-set-window-buffer (gdb-stack-buffer-name))
