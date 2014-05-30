@@ -68,15 +68,15 @@
   (interactive)
   (let ((git-gutter:force t))
     (if (compare-strings (substring-no-properties vc-mode 1 4) 0 3 "Git" 0 3)
-	(if git-gutter:enabled
+        (if linum-mode
 	    (progn
-	      (git-gutter:clear)
-	      (setq git-gutter-mode nil)
-	      (setq linum-mode t))
+	      (git-gutter)
+	      (setq linum-mode nil)
+	      (setq git-gutter-mode t))
 	  (progn
-	    (git-gutter)
-	    (setq linum-mode nil)
-	    (setq git-gutter-mode t))))
+	    (git-gutter:clear)
+	    (setq git-gutter-mode nil)
+	    (setq linum-mode t))))
     (setq git-gutter:toggle-flag git-gutter:enabled)
     (force-mode-line-update)))
 
@@ -228,13 +228,13 @@ This command makes sense from a `magit-file-log' buffer. "
   (magit-section-action (item info "visit")
     ((commit)
      (let ((filename (expand-file-name (car magit-refresh-args)
-				       (concat (magit-git-dir) "../"))))
+                                       (concat (magit-git-dir) "../"))))
        (if (file-readable-p filename)
-	   (progn
-	     (find-file-noselect filename)
-	     (with-current-buffer (find-buffer-visiting filename)
-	       (vc-revision-other-window info)))
-	 (message "not able to access %s" filename))))))
+           (progn
+             (find-file-noselect filename)
+             (with-current-buffer (find-buffer-visiting filename)
+               (vc-revision-other-window info)))
+         (message "not able to access %s" filename))))))
 
 (eval-after-load "magit.el"
   '(define-key magit-log-mode-map (kbd "C-c o") 'my-magit-visit-file-at-commit))
