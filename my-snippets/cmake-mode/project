@@ -1,0 +1,28 @@
+# -*- mode: snippet -*-
+# name: project
+# contributor: zhenglj
+# key: project
+# --
+project(${1:SYMBOL})
+cmake_minimum_required(VERSION 2.6)
+
+# Add some liberary. For example: Threads
+${3:# }find_package(Threads)
+
+# Source subdirectory src
+${7:# }add_subdirectory( $8 )
+
+# Add source files here
+set(SRC_LIST ${2:SRC_FILES})
+set(CMAKE_SOURCE_DIR .)
+set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
+set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
+
+# Self defined libhello
+${5:# }add_library(${6:libhello} STATIC \${SRC_LIST})
+
+add_executable($1 \${SRC_LIST})
+
+$5target_link_libraries($1 $6)
+
+$3target_link_libraries($1 \${CMAKE_THREAD_LIBS_INIT})

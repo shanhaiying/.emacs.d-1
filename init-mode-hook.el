@@ -16,6 +16,7 @@
             (undo-tree-mode 1)
             (hs-minor-mode 1)
             (flyspell-mode -1)
+	    (linum-mode 1)
             (c-set-style "stroustrup")))
 
 (add-to-list 'auto-mode-alist '("\\.[cC][pP][pP]\\'" . c++-mode))
@@ -26,6 +27,7 @@
             (undo-tree-mode 1)
             (hs-minor-mode 1)
             (flyspell-mode -1)
+	    (linum-mode 1)
             (c-set-style "stroustrup")
             ;; (c-toggle-auto-hungry-state 1)
             (c-set-offset 'innamespace 0)))
@@ -35,6 +37,7 @@
           (lambda ()
             (undo-tree-mode 1)
             (hs-minor-mode 1)
+	    (linum-mode 1)
             (flyspell-mode -1)))
 
 (add-hook 'java-mode-hook
@@ -42,6 +45,7 @@
             (undo-tree-mode 1)
             (hs-minor-mode 1)
             (flyspell-mode -1)
+	    (linum-mode 1)
             (c-set-style "java")))
 
 (add-to-list 'auto-mode-alist '("\\.[eE][lL]\\'" . emacs-lisp-mode))
@@ -51,6 +55,7 @@
             (undo-tree-mode 1)
             (hs-minor-mode 1)
             (flyspell-mode -1)
+	    (linum-mode 1)
             (turn-on-eldoc-mode)))
 
 (autoload 'markdown-mode "markdown-mode"
@@ -62,6 +67,7 @@
           (lambda ()
             (undo-tree-mode 1)
             (hs-minor-mode 1)
+	    (linum-mode 1)
             (flyspell-mode -1)))
 
 ;; (when (boundp 'magic-mode-alist)
@@ -82,8 +88,8 @@
             (prog-common-function)
             (undo-tree-mode 1)
             (hs-minor-mode 1)
-            (flyspell-mode -1)
-            ))
+	    (linum-mode 1)
+            (flyspell-mode -1)))
 
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (add-hook 'python-mode-hook
@@ -92,7 +98,7 @@
             (undo-tree-mode 1)
             (hs-minor-mode 1)
             (flyspell-mode -1)
-            ))
+	    (linum-mode 1)))
 
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
 ;; (add-hook 'sh-mode-hook 'prog-common-function)
@@ -103,7 +109,7 @@
             (undo-tree-mode 1)
             (hs-minor-mode 1)
             (flyspell-mode -1)
-            ))
+	    (linum-mode 1)))
 
 (add-to-list 'auto-mode-alist '("/[mM]ake\\." . makefile-gmake-mode))
 (add-hook 'makefile-mode-hook
@@ -111,7 +117,8 @@
             (undo-tree-mode 1)
             (hs-minor-mode 1)
             (flyspell-mode -1)
-            (when (fboundp 'whitespace-mode)
+	    (linum-mode 1)
+	    (when (fboundp 'whitespace-mode)
               (whitespace-mode -1))
             ;; (linum-mode 1)
             (imenu-add-menubar-index)))
@@ -122,7 +129,8 @@
           (lambda ()
             (hs-minor-mode 1)
             (flyspell-mode -1)
-            (when (fboundp 'whitespace-mode)
+            (linum-mode 1)
+	    (when (fboundp 'whitespace-mode)
               (whitespace-mode -1))
             (linum-mode 1)))
 
@@ -137,7 +145,8 @@
              (undo-tree-mode 1)
              (hs-minor-mode 1)
              (flyspell-mode -1)
-             (cperl-set-style "PerlStyle")
+             (linum-mode 1)
+	     (cperl-set-style "PerlStyle")
              (setq cperl-continued-brace-offset -4)
              (abbrev-mode t)))
 
