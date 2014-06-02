@@ -41,11 +41,12 @@ the directories in the INCLUDE environment variable."
   (set-window-dedicated-p (selected-window) nil)
   (switch-to-buffer gud-comint-buffer)
   (delete-other-windows)
+  (setq gud-gdb-buffer-width (/ (* (window-width) 3) 4)) ;for input/output buffer and locals buffer of gud mode
   (let ((win0 (selected-window))
-        (win1 (split-window nil ( / ( * (window-height) 8) 10)))
-        (win2 (split-window nil ( / ( * (window-height) 3) 8)))
-        ;; (win3 (split-window nil ( - ( / ( * (window-width) 2) 3) 1) 'right))
-        (win3 (split-window nil ( / (window-width) 2) 'right)) ;input/output
+        (win1 (split-window nil (/ (* (window-height) 8) 10)))
+        (win2 (split-window nil (/ (* (window-height) 3) 8)))
+        ;; (win3 (split-window nil (- (/ (* (window-width) 2) 3) 1) 'right))
+        (win3 (split-window nil gud-gdb-buffer-width 'right)) ;input/output
 	)
     (gdb-set-window-buffer (gdb-get-buffer-create 'gdb-inferior-io) nil win3)
     (select-window win2)
@@ -59,7 +60,7 @@ the directories in the INCLUDE environment variable."
          ;; can't find a source file.
          (list-buffers-noselect))))
     (setq gdb-source-window (selected-window))
-    (let ((win4 (split-window nil (/ (* (window-width) 3) 4) 'right))) ;locals
+    (let ((win4 (split-window nil gud-gdb-buffer-width 'right))) ;locals
       (gdb-set-window-buffer (gdb-locals-buffer-name) nil win4))
     (select-window win1)
     (gdb-set-window-buffer (gdb-stack-buffer-name))
