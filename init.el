@@ -86,7 +86,7 @@
 ;; (if (not (boundp 'light-weight-emacs)) (require 'init-eim))
 
 ;; (require 'init-ctags)
-;; (require 'init-gtags)
+(require 'init-gtags)
 (require 'init-speedbar)
 
 (require 'init-misc)
