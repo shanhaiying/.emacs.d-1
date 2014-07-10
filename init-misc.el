@@ -686,6 +686,7 @@ point reaches the beginning or end of the buffer, stop there."
 (setq highlight-symbol-on-navigation-p t)
 (global-set-key [f3] 'highlight-symbol-next)
 (global-set-key [(shift f3)] 'highlight-symbol-prev)
+(global-set-key (kbd "ESC <f3>") 'highlight-symbol-prev)
 (custom-set-faces '(highlight-symbol-face ((t (:background "gray20")))))
 
 ;; {{ ack
