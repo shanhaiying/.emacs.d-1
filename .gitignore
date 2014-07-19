@@ -50,3 +50,7 @@ history
 session.*
 /debug-init.el
 /tmp/
+.cask/
+/.python-environments/
+/site-lisp/jedi/*
+!/site-lisp/jedi/*.el

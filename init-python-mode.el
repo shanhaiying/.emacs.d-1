@@ -17,6 +17,18 @@
 (pymacs-load "ropemacs" "rope-")
 (setq ropemacs-enable-autoimport t)
 
+;; needed by jedi
+(require 'python-environment)
+;; (defun YOUR-PLUGIN-install-python-dependencies ()
+;;   (interactive)
+;;   (python-environment-run "pip" "install" "epc"))
+
+;; jedi (Python auto-completion for Emacs)
+(autoload 'jedi:setup "jedi" nil t)
+(setq jedi:setup-keys t)
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)                 ; optional
+
 ;;----------------------------------------------------------------------------
 ;; On-the-fly syntax checking via flymake
 ;;----------------------------------------------------------------------------

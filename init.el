@@ -27,7 +27,7 @@
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
-(require 'init-cedet)			;from official bzr
+(require 'init-cedet)                   ;from official bzr
 ;; (require 'init-cedet-buildin)
 
 (require 'cl-lib)
@@ -136,9 +136,9 @@
 ;; (if (not (boundp 'light-weight-emacs)) (require 'init-yasnippet))
 (require 'init-yasnippet)
 (when *emacs24*
-    ;; Choose either auto-complete or company-mode by commenting one of below two lines!
-    (require 'init-company)
-    ;; (require 'init-auto-complete) ; after init-yasnippeta to override TAB
+  ;; Choose either auto-complete or company-mode by commenting one of below two lines!
+  (require 'init-company)
+  ;; (require 'init-auto-complete) ; after init-yasnippeta to override TAB
   )
 
 ;; (require 'init-org2blog)
@@ -208,13 +208,13 @@
 ;; Variables configured via the interactive 'customize' interface
 ;;----------------------------------------------------------------------------
 (if (file-readable-p (expand-file-name "~/.emacs.d/custom.el"))
-     (load-file (expand-file-name "~/.emacs.d/custom.el"))
-       nil)
+    (load-file (expand-file-name "~/.emacs.d/custom.el"))
+  nil)
 
 ;; load email configuration explicitly
 (if (file-readable-p (expand-file-name "~/.gnus.el"))
-     (load-file (expand-file-name "~/.gnus.el"))
-       nil)
+    (load-file (expand-file-name "~/.gnus.el"))
+  nil)
 ;;----------------------------------------------------------------------------
 ;; Allow users to provide an optional "init-local" containing personal settings
 ;;----------------------------------------------------------------------------
@@ -223,12 +223,12 @@
 ;;----------------------------------------------------------------------------
 ;; Locales (setting them earlier in this file doesn't work in X)
 ;;----------------------------------------------------------------------------
-;(require 'init-locales) ;does not work in cygwin
+					;(require 'init-locales) ;does not work in cygwin
 
 
 (when (require 'time-date nil t)
-   (message "[Emacs startup time]: %d seconds."
-    (time-to-seconds (time-since emacs-load-start-time)))
-   )
+  (message "[Emacs startup time]: %d seconds."
+	   (time-to-seconds (time-since emacs-load-start-time)))
+  )
 
 (put 'erase-buffer 'disabled nil)
