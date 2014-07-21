@@ -52,5 +52,10 @@ session.*
 /tmp/
 .cask/
 /.python-environments/
+*.tar*
+*.gz
+*.zip
+
 /site-lisp/jedi/*
 !/site-lisp/jedi/*.el
+/site-lisp/pdee/
