@@ -59,3 +59,4 @@ session.*
 /site-lisp/jedi/*
 !/site-lisp/jedi/*.el
 /site-lisp/pdee/
+/site-lisp/pylookup/pylookup.db

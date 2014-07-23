@@ -123,8 +123,6 @@
 ;; (require 'init-csharp-mode)
 (require 'init-linum-mode)
 
-(require 'init-mode-hook)
-
 ;; (require 'init-xref)
 
 ;; (require 'init-better-registers) ; C-x j - jump to register
@@ -177,6 +175,8 @@
 ;; (require 'init-slime)
 ;; (require 'init-stripe-buffer)
 ;; (require 'init-elnode)
+
+(require 'init-mode-hook)
 
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient

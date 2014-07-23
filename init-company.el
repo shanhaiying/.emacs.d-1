@@ -1,6 +1,6 @@
 (require 'company)
 
-(add-hook 'after-init-hook 'global-company-mode)
+;; (add-hook 'after-init-hook 'global-company-mode)
 
 ;; does not matter, I never use this hotkey
 ;; (global-set-key (kbd "TAB") 'company-complete)
