@@ -53,6 +53,7 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             ;; (prog-common-function)
+	    (flyspell-mode -1)
             (company-mode 1)
             (turn-on-eldoc-mode)))
 
