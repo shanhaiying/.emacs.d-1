@@ -7,7 +7,7 @@
 ;;           (lambda ()
 ;;             (undo-tree-mode 1)
 ;;             (hs-minor-mode 1)
-;;             (flyspell-mode -1)))
+;;             (flyspell-mode t)))
 
 (defun general-minor-mode ()
   (progn
@@ -15,6 +15,7 @@
     (undo-tree-mode 1)
     (hs-minor-mode 1)
     (flyspell-mode -1)
+    ;; (flyspell-prog-mode)
     (linum-mode 1)
     (company-mode 1)))
 
@@ -53,7 +54,6 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             ;; (prog-common-function)
-	    (flyspell-mode -1)
             (company-mode 1)
             (turn-on-eldoc-mode)))
 
@@ -76,7 +76,6 @@
 ;; (add-hook 'objc-mode-hook
 ;;           (lambda ()
 ;;             (hs-minor-mode 1)
-;;             (flyspell-mode -1)
 ;;             (c-set-style "stroustrup")))
 
 (add-to-list 'auto-mode-alist '("\\.[pP][rR][cC]\\'" . sql-mode))
