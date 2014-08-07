@@ -1,7 +1,9 @@
 (setq py-install-directory "~/.emacs.d/site-lisp/python-mode")
 (add-to-list 'load-path py-install-directory)
 (require 'python-mode)
-(setq py-shell-name "/usr/bin/python3")
+(custom-set-variables
+ '(py-shell-name "python3"))
+;; (setq py-shell-name "/usr/bin/python3")
 ;; (setq py-shell-name "/usr/bin/X11/ipython")
 (setq py-load-pymacs-p nil)
 
@@ -19,6 +21,37 @@
 
 (setq interpreter-mode-alist
       (cons '("python" . python-mode) interpreter-mode-alist))
+
+;; {{
+;; Support for C Python core developers
+;; Both Emacs and XEmacs have support for developers hacking on the Python C code itself. If you're developing Python 2.x, just use the standard python style that comes with c-mode. If you're hacking on Python 3.x, you'll want to add the following code.
+(c-add-style
+ "python-new"
+ '((indent-tabs-mode . nil)
+   (fill-column      . 78)
+   (c-basic-offset   . 4)
+   (c-offsets-alist  . ((substatement-open . 0)
+			(inextern-lang . 0)
+			(arglist-intro . +)
+			(knr-argdecl-intro . +)))
+   (c-hanging-braces-alist . ((brace-list-open)
+			      (brace-list-intro)
+			      (brace-list-close)
+			      (brace-entry-open)
+			      (substatement-open after)
+			      (block-close . c-snug-do-while)))
+   (c-block-comment-prefix . "* "))
+ )
+;; This is a very crude hook that auto-selects the C style depending on
+;; whether it finds a line starting with tab in the first 3000 characters
+;; in the file
+(defun c-select-style ()
+   (save-excursion
+     (if (re-search-forward "^\t" 3000 t)
+         (c-set-style "python")
+       (c-set-style "python-new"))))
+(add-hook 'c-mode-hook 'c-select-style)
+;; }}
 
 (require 'pymacs)
 (pymacs-load "ropemacs" "rope-")
