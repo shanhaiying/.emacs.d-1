@@ -221,6 +221,10 @@
 ;; }}
 
 ;; http://stackoverflow.com/questions/14769044/undo-tree-style-git-in-terminal
+;; HOWTO:
+;;      1. open the file whose commit history you're interested in.
+;;      2. M-x magit-file-log
+;;      3. go to interesting commit press C-c o
 (defun my-magit-visit-file-at-commit (&optional other-window)
   "Visit current commit's file in another window.
 This command makes sense from a `magit-file-log' buffer. "
