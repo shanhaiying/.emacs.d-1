@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# ./pylookup.py -u /home/zhenglj/Documents/python-2.7.8-docs-html
+./pylookup.py -u /home/zhenglj/Documents/python-3.2.5-docs-html
+./pylookup.py -a -u http://docs.scipy.org/doc/numpy/genindex.html
+./pylookup.py -a -u http://docs.scipy.org/doc/scipy/reference/genindex.html
+./pylookup.py -a -u http://matplotlib.sourceforge.net/genindex.html

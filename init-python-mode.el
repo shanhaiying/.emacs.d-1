@@ -1,7 +1,7 @@
 (setq py-install-directory "~/.emacs.d/site-lisp/python-mode")
 (add-to-list 'load-path py-install-directory)
 (require 'python-mode)
-(setq py-shell-name "/usr/bin/python")
+(setq py-shell-name "/usr/bin/python3")
 ;; (setq py-shell-name "/usr/bin/X11/ipython")
 (setq py-load-pymacs-p nil)
 
