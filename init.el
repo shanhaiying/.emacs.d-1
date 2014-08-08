@@ -91,6 +91,7 @@
 
 (require 'init-misc)
 (require 'init-auto-insert)
+(require 'init-linum-mode)
 
 ;; -----------------------------------------------------------------
 ;;  mode configs
@@ -121,14 +122,14 @@
 (require 'init-cc-mode)
 (require 'init-cmake-mode)
 ;; (require 'init-csharp-mode)
-(require 'init-linum-mode)
 
+(require 'init-mode-hook)
+
+;; ---------------------------------------------------------------------------
 ;; (require 'init-xref)
 
 ;; (require 'init-better-registers) ; C-x j - jump to register
 (require 'init-zencoding-mode) ;emmet-mode, behind init-better-register to override C-j
-;; ---------------------------------------------------------------------------
-
 
 ;; (require 'init-fill-column-indicator) ;make auto-complete dropdown wierd
 ;; (if (not (boundp 'light-weight-emacs)) (require 'init-yasnippet))
@@ -163,7 +164,7 @@
 ;; (require 'init-sunrise-commander)
 ;; (require 'init-bbdb)
 ;; (require 'init-gnus)
-(require 'init-twittering-mode)
+;; (require 'init-twittering-mode)
 (require 'init-weibo)
 ;; itune cannot play flac, so I use mplayer+emms instead (updated, use mpd!)
 (require 'init-emms)
@@ -176,7 +177,6 @@
 ;; (require 'init-stripe-buffer)
 ;; (require 'init-elnode)
 
-(require 'init-mode-hook)
 
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
