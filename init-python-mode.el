@@ -7,10 +7,7 @@
 ;; (setq py-shell-name "/usr/bin/X11/ipython")
 (setq py-load-pymacs-p nil)
 
-(setq py-shell-map
-      (let ((map (copy-keymap comint-mode-map)))
-        (define-key map [(tab)] 'py-shell-complete)
-        map))
+(define-key py-shell-map [(tab)] 'py-shell-complete)
 
 (autoload 'doctest-mode "doctest-mode" "Python doctest editing mode." t)
 
@@ -91,14 +88,8 @@
   "Run pylookup-update and create the database at `pylookup-db-file'." t)
 
 ;; (global-set-key "\C-ch" 'pylookup-lookup)
-(setq py-shell-map
-      (let ((map (copy-keymap comint-mode-map)))
-        (define-key map "\C-ch" 'pylookup-lookup)
-        map))
-(setq python-mode-map
-      (let ((map (make-sparse-keymap)))
-	(define-key map "\C-ch" 'pylookup-lookup)
-	map))
+(define-key py-shell-map "\C-ch" 'pylookup-lookup)
+(define-key python-mode-map "\C-ch" 'pylookup-lookup)
 
 (setq browse-url-browser-function 'w3m-browse-url) ;; w3m
 (setq browse-url-default-browser "w3m")
