@@ -2,12 +2,25 @@
 (add-to-list 'load-path py-install-directory)
 (require 'python-mode)
 (custom-set-variables
- '(py-shell-name "python3"))
+ '(py-shell-name "/usr/bin/python3")
+ '(py-which-shell "/usr/bin/python3")
+ '(py-python-command "/usr/bin/python3")
+ '(python-shell-interpreter "/usr/bin/python3"))
 ;; (setq py-shell-name "/usr/bin/python3")
 ;; (setq py-shell-name "/usr/bin/X11/ipython")
 (setq py-load-pymacs-p nil)
 
 (define-key py-shell-map [(tab)] 'py-shell-complete)
+
+(defun my-py-execute-buffer-python (pythonver)
+  "Call the python interpreter."
+  (interactive "sExecute with Python[2-3]? (Default 3):")
+  (save-buffer)
+  (if (string-equal pythonver "2")
+      (py-execute-buffer)
+    (py-execute-buffer-python3)))
+
+(define-key python-mode-map (kbd "C-c C-c") #'my-py-execute-buffer-python)
 
 (autoload 'doctest-mode "doctest-mode" "Python doctest editing mode." t)
 
