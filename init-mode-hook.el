@@ -9,19 +9,20 @@
 ;;             (hs-minor-mode 1)
 ;;             (flyspell-mode t)))
 
-(defun general-minor-mode ()
+(defun prog-common-function ()
   (progn
     (interactive)
     (undo-tree-mode 1)
     (hs-minor-mode 1)
     (flyspell-mode -1)
+    (flyspell-mode-off)
     ;; (flyspell-prog-mode)
     (linum-mode 1)
     (company-mode 1)))
 
 (add-to-list 'auto-mode-alist '("\\.[ch]\\'" . c-mode))
 ;; (setq c-default-style "bsd")
-(add-hook 'c-mode-hook (lambda () (general-minor-mode)))
+(add-hook 'c-mode-hook (lambda () (prog-common-function)))
 (add-hook 'c-mode-hook
           (lambda ()
             (c-set-style "stroustrup")))
@@ -29,7 +30,7 @@
 (add-to-list 'auto-mode-alist '("\\.[cC][pP][pP]\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.[hH][pP][pP]\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.[hH]\\'" . c++-mode))
-(add-hook 'c++-mode-hook (lambda () (general-minor-mode)))
+(add-hook 'c++-mode-hook (lambda () (prog-common-function)))
 (add-hook 'c++-mode-hook
           (lambda ()
 	    (company-mode 1)
@@ -38,22 +39,21 @@
             (c-set-offset 'innamespace 0)))
 
 (add-to-list 'auto-mode-alist '("\\.tex$" . LaTeX-mode))
-(add-hook 'TeX-mode-hook (lambda () (general-minor-mode)))
+(add-hook 'TeX-mode-hook (lambda () (prog-common-function)))
 (add-hook 'TeX-mode-hook
           (lambda ()
 	    (company-mode 1)))
 
-(add-hook 'java-mode-hook (lambda () (general-minor-mode)))
+(add-hook 'java-mode-hook (lambda () (prog-common-function)))
 (add-hook 'java-mode-hook
           (lambda ()
             (company-mode 1)
             (c-set-style "java")))
 
 (add-to-list 'auto-mode-alist '("\\.[eE][lL]\\'" . emacs-lisp-mode))
-(add-hook 'emacs-lisp-mode-hook (lambda () (general-minor-mode)))
+(add-hook 'emacs-lisp-mode-hook (lambda () (prog-common-function)))
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
-            ;; (prog-common-function)
             (company-mode 1)
             (turn-on-eldoc-mode)))
 
@@ -62,7 +62,7 @@
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-(add-hook 'markdown-mode-hook (lambda () (general-minor-mode)))
+(add-hook 'markdown-mode-hook (lambda () (prog-common-function)))
 (add-hook 'markdown-mode-hook
           (lambda ()
             (company-mode 1)))
@@ -79,30 +79,26 @@
 ;;             (c-set-style "stroustrup")))
 
 (add-to-list 'auto-mode-alist '("\\.[pP][rR][cC]\\'" . sql-mode))
-(add-hook 'sql-mode-hook (lambda () (general-minor-mode)))
+(add-hook 'sql-mode-hook (lambda () (prog-common-function)))
 (add-hook 'sql-mode-hook
           (lambda ()
-            (company-mode 1)
-            (prog-common-function)))
+            (company-mode 1)))
 
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-(add-hook 'python-mode-hook (lambda () (general-minor-mode)))
+(add-hook 'python-mode-hook (lambda () (prog-common-function)))
 (add-hook 'python-mode-hook
           (lambda ()
-            (company-mode 1)
-            (prog-common-function)))
+            (company-mode 1)))
 
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
-;; (add-hook 'sh-mode-hook 'prog-common-function)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on t)
-(add-hook 'shell-mode-hook (lambda () (general-minor-mode)))
+(add-hook 'shell-mode-hook (lambda () (prog-common-function)))
 (add-hook 'shell-mode-hook
           (lambda ()
-            (company-mode 1)
-            (prog-common-function)))
+            (company-mode 1)))
 
 (add-to-list 'auto-mode-alist '("/[mM]ake\\." . makefile-gmake-mode))
-(add-hook 'makefile-mode-hook (lambda () (general-minor-mode)))
+(add-hook 'makefile-mode-hook (lambda () (prog-common-function)))
 (add-hook 'makefile-mode-hook
           (lambda ()
             (when (fboundp 'whitespace-mode)
@@ -112,7 +108,7 @@
             (imenu-add-menubar-index)))
 
 (add-to-list 'auto-mode-alist '("\\.[a-zA-Z]+rc$" . conf-mode))
-(add-hook 'autoconf-mode-hook (lambda () (general-minor-mode)))
+(add-hook 'autoconf-mode-hook (lambda () (prog-common-function)))
 (add-hook 'autoconf-mode-hook
           (lambda ()
             (when (fboundp 'whitespace-mode)
@@ -120,15 +116,13 @@
             (company-mode 1)
             (linum-mode 1)))
 
-;; (add-hook 'perl-mode-hook 'prog-common-function)
 (add-to-list 'auto-mode-alist '("\\.\\([pP][Llm]\\|al\\)\\'" . cperl-mode))
 (add-to-list 'interpreter-mode-alist '("perl" . cperl-mode))
 (add-to-list 'interpreter-mode-alist '("perl5" . cperl-mode))
 (add-to-list 'interpreter-mode-alist '("miniperl" . cperl-mode))
-(add-hook 'cperl-mode-hook (lambda () (general-minor-mode)))
+(add-hook 'cperl-mode-hook (lambda () (prog-common-function)))
 (add-hook 'cperl-mode-hook
           '(lambda ()
-             ;; (prog-common-function)
              (cperl-set-style "PerlStyle")
              (setq cperl-continued-brace-offset -4)
              (company-mode 1)
