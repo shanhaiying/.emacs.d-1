@@ -33,5 +33,5 @@
       ad-do-it))
   (ad-activate 'linum-on)
   )
-(setq linum-format " %d")
+(setq linum-format " %2d")
 (provide 'init-linum-mode)
