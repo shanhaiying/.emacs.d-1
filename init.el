@@ -137,7 +137,7 @@
 (when *emacs24*
   ;; Choose either auto-complete or company-mode by commenting one of below two lines!
   (require 'init-company)
-  ;; (require 'init-auto-complete) ; after init-yasnippeta to override TAB
+  (require 'init-auto-complete) ; after init-yasnippeta to override TAB
   )
 
 ;; (require 'init-org2blog)
@@ -176,7 +176,6 @@
 ;; (require 'init-slime)
 ;; (require 'init-stripe-buffer)
 ;; (require 'init-elnode)
-
 
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient

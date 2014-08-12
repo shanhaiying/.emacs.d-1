@@ -166,6 +166,7 @@ the mru bookmark stack."
 (add-hook 'scheme-mode-hook 'z/cedet-hook)
 (add-hook 'emacs-lisp-mode-hook 'z/cedet-hook)
 (add-hook 'erlang-mode-hook 'z/cedet-hook)
+(add-hook 'python-mode-hook 'z/cedet-hook)
 
 ;; (defun z/c-mode-cedet-hook ()
 ;;  ;; (local-set-key "." 'semantic-complete-self-insert)

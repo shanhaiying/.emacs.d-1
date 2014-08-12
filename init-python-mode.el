@@ -8,7 +8,6 @@
  '(python-shell-interpreter "/usr/bin/python3"))
 ;; (setq py-shell-name "/usr/bin/python3")
 ;; (setq py-shell-name "/usr/bin/X11/ipython")
-(setq py-load-pymacs-p nil)
 
 (define-key py-shell-map [(tab)] 'py-shell-complete)
 
@@ -63,10 +62,16 @@
 (add-hook 'c-mode-hook 'c-select-style)
 ;; }}
 
-(require 'pymacs)
-(pymacs-load "ropemacs" "rope-")
-(setq ropemacs-enable-autoimport t)
+(setq py-load-pymacs-p nil)
 
+;; {{
+;; ;; use pymacs + rope + ropemacs to auto complete
+;; (require 'pymacs)
+;; (pymacs-load "ropemacs" "rope-")
+;; (setq ropemacs-enable-autoimport t)
+;; }}
+
+;; {{
 ;; needed by jedi
 (require 'python-environment)
 ;; (defun YOUR-PLUGIN-install-python-dependencies ()
@@ -78,6 +83,7 @@
 (setq jedi:setup-keys t)
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)                 ; optional
+;; }}
 
 ;; pdee (Python Development Emacs Environment)
 
