@@ -60,3 +60,4 @@ session.*
 !/site-lisp/jedi/*.el
 /site-lisp/pdee/
 /site-lisp/pylookup/pylookup.db
+/site-lisp/python-mode.el*
