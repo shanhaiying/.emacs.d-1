@@ -1,4 +1,12 @@
 (require 'which-func)
 (add-to-list 'which-func-modes 'org-mode)
+(add-to-list 'which-func-modes 'c-mode)
+(add-to-list 'which-func-modes 'c++-mode)
+(add-to-list 'which-func-modes 'java-mode)
+(add-to-list 'which-func-modes 'python-mode)
+(add-to-list 'which-func-modes 'lisp-mode)
+(add-to-list 'which-func-modes 'emacs-lisp-mode)
 (which-func-mode 1)
+(custom-set-faces '(which-func ((t (:foreground "cyan")))))
+
 (provide 'init-which-func)
