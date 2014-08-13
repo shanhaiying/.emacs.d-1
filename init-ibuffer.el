@@ -52,6 +52,7 @@
 				 (mode . conf-windows-mode)
 				 (mode . conf-space-mode)
 				 (mode . markdown-mode)
+				 (mode . text-mode)
 				 ))
                     ("dired" (or (mode . dired-mode)
                                  (mode . sr-mode)
