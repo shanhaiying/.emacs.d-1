@@ -44,22 +44,22 @@
 (add-hook 'TeX-mode-hook (lambda () (prog-common-function)))
 (add-hook 'TeX-mode-hook
           (lambda ()
-	    (company-mode -1)
-	    (auto-complete-mode 1)))
+	    (company-mode 1)
+	    (auto-complete-mode -1)))
 
 (add-hook 'java-mode-hook (lambda () (prog-common-function)))
 (add-hook 'java-mode-hook
           (lambda ()
-	    (company-mode -1)
-	    (auto-complete-mode 1)
+	    (company-mode 1)
+	    (auto-complete-mode -1)
 	    (c-set-style "java")))
 
 (add-to-list 'auto-mode-alist '("\\.[eE][lL]\\'" . emacs-lisp-mode))
 (add-hook 'emacs-lisp-mode-hook (lambda () (prog-common-function)))
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
-	    (company-mode -1)
-	    (auto-complete-mode 1)
+	    (company-mode 1)
+	    (auto-complete-mode -1)
 	    (turn-on-eldoc-mode)))
 
 (autoload 'markdown-mode "markdown-mode"
@@ -70,8 +70,8 @@
 (add-hook 'markdown-mode-hook (lambda () (prog-common-function)))
 (add-hook 'markdown-mode-hook
           (lambda ()
-	    (company-mode -1)
-	    (auto-complete-mode 1)))
+	    (company-mode 1)
+	    (auto-complete-mode -1)))
 
 ;; (when (boundp 'magic-mode-alist)
 ;;   (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*@implementation" . objc-mode))
@@ -101,15 +101,15 @@
 (add-hook 'shell-mode-hook (lambda () (prog-common-function)))
 (add-hook 'shell-mode-hook
           (lambda ()
-	    (company-mode -1)
-	    (auto-complete-mode 1)))
+	    (company-mode 1)
+	    (auto-complete-mode -1)))
 
 (add-to-list 'auto-mode-alist '("/[mM]ake\\." . makefile-gmake-mode))
 (add-hook 'makefile-mode-hook (lambda () (prog-common-function)))
 (add-hook 'makefile-mode-hook
           (lambda ()
-	    (company-mode -1)
-	    (auto-complete-mode 1)
+	    (company-mode 1)
+	    (auto-complete-mode -1)
             (when (fboundp 'whitespace-mode)
               (whitespace-mode -1))
             (imenu-add-menubar-index)))
@@ -118,8 +118,8 @@
 (add-hook 'autoconf-mode-hook (lambda () (prog-common-function)))
 (add-hook 'autoconf-mode-hook
           (lambda ()
-	    (company-mode -1)
-	    (auto-complete-mode 1)
+	    (company-mode 1)
+	    (auto-complete-mode -1)
             (when (fboundp 'whitespace-mode)
               (whitespace-mode -1))))
 
@@ -130,8 +130,8 @@
 (add-hook 'cperl-mode-hook (lambda () (prog-common-function)))
 (add-hook 'cperl-mode-hook
           '(lambda ()
-	     (company-mode -1)
-	     (auto-complete-mode 1)
+	     (company-mode 1)
+	     (auto-complete-mode -1)
 	     (cperl-set-style "PerlStyle")
              (setq cperl-continued-brace-offset -4)
              (abbrev-mode t)))
