@@ -1,14 +1,30 @@
 (require 'python-mode)
 (custom-set-variables
  '(py-shell-name "/usr/bin/python3")
- ;; '(py-which-shell "/usr/bin/python3")
- ;; '(py-python-command "/usr/bin/python3")
- ;; '(python-shell-interpreter "/usr/bin/python3")
+ ;; '(py-shell-name "/usr/bin/X11/ipython3")
+ '(py-which-bufname "Python3")
+ ;; '(py-which-bufname "IPython3")
+ '(py-which-shell "/usr/bin/python3")
+ '(py-python-command "/usr/bin/python3")
+ '(python-shell-interpreter "/usr/bin/python3")
  )
 ;; (setq py-shell-name "/usr/bin/python3")
 ;; (setq py-shell-name "/usr/bin/X11/ipython")
 
+;; ;; use the wx backend, for both mayavi and matplotlib
+;; (setq py-python-command-args
+;;   '("--gui=wx" "--pylab=wx" "-colors" "Linux"))
+
+;; ;; switch to the interpreter after executing code
+;; (setq py-shell-switch-buffers-on-execute-p nil)
+;; (setq py-switch-buffers-on-execute-p t)
+;; try to automagically figure out indentation
+(setq py-smart-indentation t)
+
 (define-key py-shell-map [(control tab)] 'py-shell-complete)
+
+;; "C-c C-e" py-help-at-point is useless, so rebind it.
+(define-key python-mode-map (kbd "C-c C-e") 'py-execute-region-default)
 
 (defun my-py-execute-buffer-python (pythonver)
   "Call the python interpreter."
@@ -121,7 +137,8 @@
 (add-hook 'python-mode-hook '(lambda ()
                                (when *emacs24*
                                  (anaconda-eldoc)
-                                 (add-to-list 'company-backends 'company-anaconda))
+                                 ;; (add-to-list 'company-backends 'company-anaconda)
+				 )
                                (flymake-python-pyflakes-load)))
 
 
