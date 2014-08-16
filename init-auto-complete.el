@@ -16,6 +16,7 @@
 			   ac-source-dictionary))
 (require 'auto-complete-auctex)         ;Dependencies yasnippet 0.6.1 / auto-complete 1.4
 
+(global-auto-complete-mode nil)
 (global-set-key (kbd "M-n") 'auto-complete)
 
 ;; (when (and (> emacs-major-version 22)

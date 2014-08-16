@@ -104,6 +104,12 @@
 	    (company-mode 1)
 	    (auto-complete-mode -1)))
 
+(add-hook 'sh-mode-hook (lambda () (prog-common-function)))
+(add-hook 'sh-mode-hook
+          (lambda ()
+	    (company-mode 1)
+	    (auto-complete-mode -1)))
+
 (add-to-list 'auto-mode-alist '("/[mM]ake\\." . makefile-gmake-mode))
 (add-hook 'makefile-mode-hook (lambda () (prog-common-function)))
 (add-hook 'makefile-mode-hook

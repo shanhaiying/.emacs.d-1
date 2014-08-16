@@ -36,7 +36,7 @@
  )
 
 ;; Make backups of files, even when they're in version control
-(setq vc-make-backup-files t)
+(setq vc-make-backup-files nil)
 
 (dolist (mode '(c-mode c++-mode objc-mode java-mode jde-mode
                        perl-mode cperl-mode php-mode python-mode ruby-mode
