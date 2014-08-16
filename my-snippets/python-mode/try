@@ -1,8 +1,13 @@
 # -*- mode: Snippet; -*-
-#contributor : Meteor Liu <meteor1113@gmail.com>
-#name : Try/Except
+#contributor : 
+#name : Try/Except/Else/Finally
 # --
 try:
     ${1:pass}
-except ${2:Exception}, ${3:e}:
-    raise $3
+except ${2:Exception} as ${3:e}:
+    ${4:print($3)}
+    raise ${5:}
+else:
+    ${6:pass}
+finally:
+    ${7:pass}
