@@ -144,4 +144,6 @@
 
 (add-to-list 'auto-mode-alist '("Portfile\\'" . tcl-mode))
 
+(add-hook 'gitignore-mode-hook (lambda () (prog-common-function)))
+
 (provide 'init-mode-hook)
