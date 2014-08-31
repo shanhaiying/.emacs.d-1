@@ -55,6 +55,7 @@ session.*
 *.tar*
 *.gz
 *.zip
+filesets-cache.el
 
 /site-lisp/jedi/*
 !/site-lisp/jedi/*.el

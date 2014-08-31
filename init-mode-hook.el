@@ -146,4 +146,14 @@
 
 (add-hook 'gitignore-mode-hook (lambda () (prog-common-function)))
 
+(add-hook 'conf-mode-hook (lambda () (prog-common-function)))
+
+(add-hook 'conf-unix-mode-hook (lambda () (prog-common-function)))
+
+(add-hook 'conf-windows-mode-hook (lambda () (prog-common-function)))
+
+(add-hook 'conf-space-mode-hook (lambda () (prog-common-function)))
+
+(add-hook 'text-mode-hook (lambda () (prog-common-function)))
+
 (provide 'init-mode-hook)

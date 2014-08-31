@@ -272,7 +272,7 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'popwin)
 (require-package 'elnode)
 (require-package 'evil-matchit '(1 2 7) nil)
-(require-package 'pymacs)
+;; (require-package 'pymacs)
 ;; (require-package 'jedi)
 (if *emacs24* (require-package 'anaconda-mode))
 (require-package 'quack) ;; for scheme

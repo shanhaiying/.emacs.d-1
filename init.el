@@ -82,7 +82,9 @@
 (require 'init-git)
 (require 'init-emacspeak)
 ;; Chinese inut method
-(require 'init-ibus)
+;; The interface python-ibus is broken with ibus 1.5, and the emacs interface ibus.el is non longer usable.
+;; We can continue to use emacs with ibus letting the XIM do the input
+;; (require 'init-ibus)
 ;; (if (not (boundp 'light-weight-emacs)) (require 'init-eim))
 
 ;; (require 'init-ctags)

@@ -23,6 +23,6 @@
   (other-window 1))
 (global-set-key [(meta f11)] 'speedbar-get-focus)
 
-(custom-set-variables  '(speedbar-frame-parameters (quote ((minibuffer) (width . 35) (height . 36)))))
+;; (custom-set-variables  '(speedbar-frame-parameters (quote ((minibuffer) (width . 35) (height . 36)))))
 
 (provide 'init-speedbar)
