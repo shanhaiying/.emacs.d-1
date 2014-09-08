@@ -882,7 +882,7 @@ The full path into relative path insert it as a local file link in org-mode"
 (setq sdcv-dictionary-simple-list '("朗道英汉字典5.0"))
 (setq sdcv-dictionary-complete-list
       '(
-        ;; "朗道英汉字典5.0"
+        "朗道英汉字典5.0"
         ;; "懒虫简明英汉词典"
         "牛津现代英汉双解词典"
 	"21世纪英汉汉英双向词典"
