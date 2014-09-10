@@ -216,8 +216,8 @@ Like eclipse's Ctrl+Alt+F."
 (eval-after-load "hideshow"
   '(progn (define-key hs-minor-mode-map [(shift mouse-2)] nil)
           (define-key hs-minor-mode-map (kbd "C-+") 'hs-toggle-hiding)
-          (define-key hs-minor-mode-map (kbd "C-;") 'hs-hide-all)
-          (define-key hs-minor-mode-map (kbd "C-\'") 'hs-show-all)
+          (define-key hs-minor-mode-map (kbd "C-:") 'hs-hide-all)
+          (define-key hs-minor-mode-map (kbd "C-\"") 'hs-show-all)
           ;; (define-key hs-minor-mode-map (kbd "C-:") 'hs-hide-block)
           ;; (define-key hs-minor-mode-map (kbd "C-\"") 'hs-show-block)
           ;; (define-key hs-minor-mode-map [/C-c l] 'hs-hide-level)
