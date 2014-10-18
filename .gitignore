@@ -62,3 +62,5 @@ filesets-cache.el
 /site-lisp/pdee/
 /site-lisp/pylookup/pylookup.db
 /site-lisp/python-mode.el*
+/site-lisp/evernote-mode
+/site-lisp/evernote-mode/*.el

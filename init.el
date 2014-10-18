@@ -168,6 +168,7 @@
 ;; (require 'init-gnus)
 ;; (require 'init-twittering-mode)
 (require 'init-weibo)
+(require 'init-evernote)
 ;; itune cannot play flac, so I use mplayer+emms instead (updated, use mpd!)
 (require 'init-emms)
 (require 'init-doxygen)
