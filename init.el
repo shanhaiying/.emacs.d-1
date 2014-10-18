@@ -178,6 +178,7 @@
 ;; (require 'init-slime)
 ;; (require 'init-stripe-buffer)
 ;; (require 'init-elnode)
+(require 'init-zeal)
 
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient

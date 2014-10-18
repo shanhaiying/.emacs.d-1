@@ -283,6 +283,7 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'auto-complete-clang)
 (require-package 'auto-complete-auctex)
 (require-package 'autopair)
+(require-package 'zeal-at-point)
 
 (when *emacs24*
   (require-package 'helm '(20140205 2333 0) nil)
