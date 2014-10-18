@@ -132,6 +132,7 @@ the mru bookmark stack."
 ;; customisation of modes
 (defun z/cedet-hook ()
   (local-set-key [(control tab)] 'semantic-ia-complete-symbol-menu)
+  ;; (local-set-key "\M-n" 'semantic-ia-complete-symbol-menu)
   ;; (local-set-key "\C-c?" 'semantic-ia-complete-symbol)
   ;; ;;
   ;; (local-set-key "\C-c>" 'semantic-comsemantic-ia-complete-symbolplete-analyze-inline)
@@ -158,6 +159,7 @@ the mru bookmark stack."
   ;;  (local-set-key (kbd "C-c <right>") 'semantic-tag-folding-show-block)
 
   ;; (add-to-list 'ac-sources 'ac-source-semantic)
+  (local-set-key (kbd "C-c o") 'eassist-switch-h-cpp)
   )
 
 ;; (add-hook 'semantic-init-hooks 'z/cedet-hook)

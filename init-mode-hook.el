@@ -146,6 +146,14 @@
 
 (add-hook 'gitignore-mode-hook (lambda () (prog-common-function)))
 
+(add-hook 'cmake-mode-hook (lambda () (prog-common-function)))
+
+(add-hook 'yaml-mode-hook (lambda () (prog-common-function)))
+
+(add-hook 'web-mode-hook (lambda () (prog-common-function)))
+
+(add-hook 'css-mode-hook (lambda () (prog-common-function)))
+
 (add-hook 'conf-mode-hook (lambda () (prog-common-function)))
 
 (add-hook 'conf-unix-mode-hook (lambda () (prog-common-function)))
