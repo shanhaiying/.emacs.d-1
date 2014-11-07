@@ -8,7 +8,8 @@
 ;; Zeal queries can be narrowed down with a docset prefix. You can customize the relations between docsets and major modes.
 (add-to-list 'zeal-at-point-mode-alist '(c-mode . "c"))
 (add-to-list 'zeal-at-point-mode-alist '(c++-mode . "c++"))
-(add-to-list 'zeal-at-point-mode-alist '(python-mode . "python"))
+(add-to-list 'zeal-at-point-mode-alist '(go-mode . "go"))
+(add-to-list 'zeal-at-point-mode-alist '(python-mode . "python 3"))
 (add-to-list 'zeal-at-point-mode-alist '(cmake-mode . "cmake"))
 (add-to-list 'zeal-at-point-mode-alist '(emacs-lisp-mode . "emacs"))
 

@@ -54,6 +54,15 @@
 	    (auto-complete-mode -1)
 	    (c-set-style "java")))
 
+(add-to-list 'auto-mode-alist '("\\.[gG][oO]\\'" . go-mode))
+(add-hook 'go-mode-hook (lambda () (prog-common-function)))
+(add-hook 'go-mode-hook
+          (lambda ()
+            (company-mode -1)
+            (auto-complete-mode 1)
+            (add-to-list 'ac-sources 'ac-source-go)
+            (call-process "gocode" nil nil nil "-s")))
+
 (add-to-list 'auto-mode-alist '("\\.[eE][lL]\\'" . emacs-lisp-mode))
 (add-hook 'emacs-lisp-mode-hook (lambda () (prog-common-function)))
 (add-hook 'emacs-lisp-mode-hook

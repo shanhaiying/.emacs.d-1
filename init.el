@@ -124,6 +124,7 @@
 (require 'init-cc-mode)
 (require 'init-cmake-mode)
 ;; (require 'init-csharp-mode)
+(require 'init-go-mode)
 
 (require 'init-mode-hook)
 
