@@ -1,8 +1,7 @@
 #contributor : Meteor Liu <meteor1113@gmail.com>
 #name : switch (...) { case : ... default: ...}
 # --
-switch (${expr})
-{
+switch (${expr}) {
 case ${constexpr}:
     $0
     break;

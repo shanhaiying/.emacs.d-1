@@ -19,14 +19,19 @@
     ;; (flyspell-prog-mode)
     (linum-mode 1)))
 
+(require 'google-c-style)
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
 (add-to-list 'auto-mode-alist '("\\.[ch]\\'" . c-mode))
 ;; (setq c-default-style "bsd")
 (add-hook 'c-mode-hook (lambda () (prog-common-function)))
 (add-hook 'c-mode-hook
           (lambda ()
-	    (company-mode 1)
-	    (auto-complete-mode -1)
-            (c-set-style "stroustrup")))
+            (company-mode 1)
+            (auto-complete-mode -1)
+            ;; (c-set-style "stroustrup")
+            ))
 
 (add-to-list 'auto-mode-alist '("\\.[cC][pP][pP]\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.[hH][pP][pP]\\'" . c++-mode))
@@ -34,25 +39,19 @@
 (add-hook 'c++-mode-hook (lambda () (prog-common-function)))
 (add-hook 'c++-mode-hook
           (lambda ()
-	    (company-mode 1)
-	    (auto-complete-mode -1)
-	    (c-set-style "stroustrup")
+            (company-mode 1)
+            (auto-complete-mode -1)
+            ;; (c-set-style "stroustrup")
             ;; (c-toggle-auto-hungry-state 1)
             (c-set-offset 'innamespace 0)))
-
-(add-to-list 'auto-mode-alist '("\\.tex$" . LaTeX-mode))
-(add-hook 'TeX-mode-hook (lambda () (prog-common-function)))
-(add-hook 'TeX-mode-hook
-          (lambda ()
-	    (company-mode 1)
-	    (auto-complete-mode -1)))
 
 (add-hook 'java-mode-hook (lambda () (prog-common-function)))
 (add-hook 'java-mode-hook
           (lambda ()
-	    (company-mode 1)
-	    (auto-complete-mode -1)
-	    (c-set-style "java")))
+            (company-mode 1)
+            (auto-complete-mode -1)
+            (c-set-style "java")
+            ))
 
 (add-to-list 'auto-mode-alist '("\\.[gG][oO]\\'" . go-mode))
 (add-hook 'go-mode-hook (lambda () (prog-common-function)))
@@ -67,9 +66,9 @@
 (add-hook 'emacs-lisp-mode-hook (lambda () (prog-common-function)))
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
-	    (company-mode 1)
-	    (auto-complete-mode -1)
-	    (turn-on-eldoc-mode)))
+            (company-mode 1)
+            (auto-complete-mode -1)
+            (turn-on-eldoc-mode)))
 
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
@@ -79,8 +78,15 @@
 (add-hook 'markdown-mode-hook (lambda () (prog-common-function)))
 (add-hook 'markdown-mode-hook
           (lambda ()
-	    (company-mode 1)
-	    (auto-complete-mode -1)))
+            (company-mode 1)
+            (auto-complete-mode -1)))
+
+(add-to-list 'auto-mode-alist '("\\.tex$" . LaTeX-mode))
+(add-hook 'TeX-mode-hook (lambda () (prog-common-function)))
+(add-hook 'TeX-mode-hook
+          (lambda ()
+            (company-mode 1)
+            (auto-complete-mode -1)))
 
 ;; (when (boundp 'magic-mode-alist)
 ;;   (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*@implementation" . objc-mode))
@@ -102,29 +108,29 @@
 (add-hook 'python-mode-hook (lambda () (prog-common-function)))
 (add-hook 'python-mode-hook
           (lambda ()
-	    (company-mode -1)
-	    (auto-complete-mode 1)))
+            (company-mode -1)
+            (auto-complete-mode 1)))
 
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on t)
 (add-hook 'shell-mode-hook (lambda () (prog-common-function)))
 (add-hook 'shell-mode-hook
           (lambda ()
-	    (company-mode 1)
-	    (auto-complete-mode -1)))
+            (company-mode 1)
+            (auto-complete-mode -1)))
 
 (add-hook 'sh-mode-hook (lambda () (prog-common-function)))
 (add-hook 'sh-mode-hook
           (lambda ()
-	    (company-mode 1)
-	    (auto-complete-mode -1)))
+            (company-mode 1)
+            (auto-complete-mode -1)))
 
 (add-to-list 'auto-mode-alist '("/[mM]ake\\." . makefile-gmake-mode))
 (add-hook 'makefile-mode-hook (lambda () (prog-common-function)))
 (add-hook 'makefile-mode-hook
           (lambda ()
-	    (company-mode 1)
-	    (auto-complete-mode -1)
+            (company-mode 1)
+            (auto-complete-mode -1)
             (when (fboundp 'whitespace-mode)
               (whitespace-mode -1))
             (imenu-add-menubar-index)))
@@ -133,8 +139,8 @@
 (add-hook 'autoconf-mode-hook (lambda () (prog-common-function)))
 (add-hook 'autoconf-mode-hook
           (lambda ()
-	    (company-mode 1)
-	    (auto-complete-mode -1)
+            (company-mode 1)
+            (auto-complete-mode -1)
             (when (fboundp 'whitespace-mode)
               (whitespace-mode -1))))
 
@@ -145,9 +151,9 @@
 (add-hook 'cperl-mode-hook (lambda () (prog-common-function)))
 (add-hook 'cperl-mode-hook
           '(lambda ()
-	     (company-mode 1)
-	     (auto-complete-mode -1)
-	     (cperl-set-style "PerlStyle")
+             (company-mode 1)
+             (auto-complete-mode -1)
+             (cperl-set-style "PerlStyle")
              (setq cperl-continued-brace-offset -4)
              (abbrev-mode t)))
 

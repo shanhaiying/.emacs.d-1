@@ -1,10 +1,7 @@
 #contributor : Meteor Liu <meteor1113@gmail.com>
 #name : try { ... } catch (...) { ... }
 # --
-try
-{
+try {
     $0
-}
-catch (...)
-{
+} catch (...) {
 }
