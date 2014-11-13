@@ -243,4 +243,6 @@ This command makes sense from a `magit-file-log' buffer. "
 (eval-after-load "magit.el"
   '(define-key magit-log-mode-map (kbd "C-c o") 'my-magit-visit-file-at-commit))
 
+(require 'git-timemachine)
+
 (provide 'init-git)
