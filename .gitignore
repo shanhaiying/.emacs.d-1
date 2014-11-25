@@ -60,6 +60,8 @@ filesets-cache.el
 /site-lisp/jedi/*
 !/site-lisp/jedi/*.el
 /site-lisp/pdee/
+/site-lisp/pdee-master/
+/site-lisp/Pymacs/
 /site-lisp/pylookup/pylookup.db
 /site-lisp/python-mode.el*
 /site-lisp/evernote-mode

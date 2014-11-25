@@ -77,13 +77,17 @@
 (add-hook 'c-mode-hook 'c-select-style)
 ;; }}
 
-(setq py-load-pymacs-p nil)
-
 ;; {{
-;; ;; use pymacs + rope + ropemacs to auto complete
-;; (require 'pymacs)
-;; (pymacs-load "ropemacs" "rope-")
-;; (setq ropemacs-enable-autoimport t)
+;; use pymacs + rope + ropemacs code refactoring
+(setq py-load-pymacs-p nil)
+(require 'pymacs)
+;; (autoload 'pymacs-apply "pymacs")
+;; (autoload 'pymacs-call "pymacs")
+;; (autoload 'pymacs-eval "pymacs" nil t)
+;; (autoload 'pymacs-exec "pymacs" nil t)
+;; (autoload 'pymacs-load "pymacs" nil t)
+(pymacs-load "ropemacs" "rope-")
+(setq ropemacs-enable-autoimport t)
 ;; }}
 
 ;; {{
