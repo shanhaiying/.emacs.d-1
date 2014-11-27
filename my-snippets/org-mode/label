@@ -1,4 +1,0 @@
-#name : Label
-#contributor : zhenglj <zhenglj1989@hotmail.com>
-# --
-#+LABEL: ${1:tablel}

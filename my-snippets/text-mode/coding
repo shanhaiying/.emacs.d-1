@@ -1,3 +1,0 @@
-#name : coding
-# --
-# -*- coding: ${1:utf-8} -*-
