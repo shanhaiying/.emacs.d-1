@@ -13,6 +13,4 @@
 ;;   '(lambda ()
 ;;      (...)))
 
-(setq evernote-developer-token "S=s215:U=2cf95a1:E=15161d0cc7d:C=14a0a1f9e60:P=1cd:A=en-devtoken:V=2:H=4775ff03aaa4e19d35f0d94a353100be")
-
 (provide 'init-evernote)
