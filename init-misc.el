@@ -599,15 +599,24 @@ point reaches the beginning or end of the buffer, stop there."
 ;;          )))))
 ;; (global-set-key (kbd "C-c c")  'copy-file-and-rename-buffer)
 
-;; @see http://wenshanren.org/?p=298
-(defun sudo-edit-current-file ()
-  "Edit the current file in another buffer as root"
-  (interactive)
-  (if (buffer-file-name)
-      (progn
-        (setq file (concat "/sudo:root@localhost:" (buffer-file-name)))
-        (find-file file))
-    (message "Current buffer does not have an associated file.")))
+;; http://emacsredux.com/blog/2013/04/21/edit-files-as-root/
+(defun sudo-edit (&optional arg)
+  "Edit currently visited file as root.
+
+With a prefix ARG prompt for a file to visit.
+Will also prompt for a file to visit if current
+buffer is not visiting a file."
+  (interactive "P")
+  (if (or arg (not buffer-file-name))
+      (find-file (concat "/sudo:root@localhost:"
+                         (ido-read-file-name "Find file(as root): ")))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+
+(defadvice ido-find-file (after find-file-sudo activate)
+  "Find file as root if necessary."
+  (unless (and buffer-file-name
+               (file-writable-p buffer-file-name))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
 ;; {{ eval and replace anywhere
 ;; @see http://emacs.wordpress.com/2007/01/17/eval-and-replace-anywhere/
