@@ -862,6 +862,7 @@ The full path into relative path insert it as a local file link in org-mode"
 ;; color theme
 (require 'color-theme)
 (color-theme-molokai)
+;; (color-theme-solarized-dark)
 
 (global-set-key [f7] 'compile)
 ;; {{smart-compile: http://www.emacswiki.org/emacs/SmartCompile

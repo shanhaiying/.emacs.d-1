@@ -58,6 +58,7 @@ session.*
 /.python-environments/
 filesets-cache.el
 /my-snippets/
+/yasnippet-snippets/
 
 /site-lisp/jedi/*
 !/site-lisp/jedi/*.el
