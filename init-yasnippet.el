@@ -2,7 +2,7 @@
 ;; (yas-global-mode 1)
 
 ;; my private snippets
-(setq my-snippets (expand-file-name "~/.emacs.d/my-snippets"))
+(setq my-snippets (expand-file-name "~/.emacs.d/yasnippet-snippets"))
 (if (and  (file-exists-p my-snippets) (not (member my-snippets yas/snippet-dirs)))
     (add-to-list 'yas/snippet-dirs my-snippets))
 ;; (message "yas/snippet-dirs=%s" (mapconcat 'identity yas-snippet-dirs ":"))
