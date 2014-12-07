@@ -20,8 +20,9 @@
     (linum-mode 1)))
 
 (require 'google-c-style)
-(add-hook 'c-mode-common-hook 'google-set-c-style)
-(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+;; donot use c-mode-common-hook or cc-mode-hook because many major-modes use this hook
+;; (add-hook 'c-mode-common-hook 'google-set-c-style)
+;; (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 
 (add-to-list 'auto-mode-alist '("\\.[ch]\\'" . c-mode))
 ;; (setq c-default-style "bsd")
@@ -31,6 +32,8 @@
             (company-mode 1)
             (auto-complete-mode -1)
             ;; (c-set-style "stroustrup")
+	    (google-set-c-style)
+	    (google-make-newline-indent)
             ))
 
 (add-to-list 'auto-mode-alist '("\\.[cC][pP][pP]\\'" . c++-mode))
@@ -42,8 +45,9 @@
             (company-mode 1)
             (auto-complete-mode -1)
             ;; (c-set-style "stroustrup")
-            ;; (c-toggle-auto-hungry-state 1)
-            (c-set-offset 'innamespace 0)))
+	    (google-set-c-style)
+	    (google-make-newline-indent)
+	    ))
 
 (add-hook 'java-mode-hook (lambda () (prog-common-function)))
 (add-hook 'java-mode-hook
@@ -55,12 +59,11 @@
 
 (add-to-list 'auto-mode-alist '("\\.[gG][oO]\\'" . go-mode))
 (add-hook 'go-mode-hook (lambda () (prog-common-function)))
-(add-hook 'go-mode-hook
-          (lambda ()
-            (company-mode -1)
-            (auto-complete-mode 1)
-            (add-to-list 'ac-sources 'ac-source-go)
-            (call-process "gocode" nil nil nil "-s")))
+;; configure company/auto-complete in "init-go-mode.el"
+;; (add-hook 'go-mode-hook
+;;           (lambda ()
+;;             (company-mode -1)
+;;             (auto-complete-mode 1)))
 
 (add-to-list 'auto-mode-alist '("\\.[eE][lL]\\'" . emacs-lisp-mode))
 (add-hook 'emacs-lisp-mode-hook (lambda () (prog-common-function)))

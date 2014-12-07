@@ -378,7 +378,7 @@ the directories in the INCLUDE environment variable."
 
   )
 ;; donot use c-mode-common-hook or cc-mode-hook because many major-modes use this hook
-(add-hook 'c-mode-hook 'my-c-mode-hook)
-(add-hook 'c++-mode-hook 'my-c-mode-hook)
+;; (add-hook 'c-mode-hook 'my-c-mode-hook)
+;; (add-hook 'c++-mode-hook 'my-c-mode-hook)
 
 (provide 'init-cc-mode)
