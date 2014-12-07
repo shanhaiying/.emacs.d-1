@@ -427,6 +427,16 @@ Like eclipse's Ctrl+Alt+F."
 					(mwheel-install)))))
 
 					; @see http://www.emacswiki.org/emacs/SavePlace
+;; color theme
+;; (when (< emacs-major-version 24)
+;;   (require 'color-theme)
+;;   (setq color-theme-is-global t)
+;;   (color-theme-lethe)
+;;   )
+(require 'color-theme)
+(color-theme-molokai)
+;; (color-theme-solarized-dark)
+
 (require 'saveplace)
 (setq-default save-place t)
 
@@ -697,6 +707,10 @@ buffer is not visiting a file."
 (global-set-key [(shift f3)] 'highlight-symbol-prev)
 (global-set-key (kbd "ESC <f3>") 'highlight-symbol-prev)
 ;; (custom-set-faces '(highlight-symbol-face ((t (:background "gray25")))))
+(require 'color)
+(let ((bg (face-attribute 'default :background)))
+  (custom-set-faces
+   `(highlight-symbol-face ((t (:background ,(color-lighten-name bg 10)))))))
 
 ;; {{ ack
 (autoload 'ack-same "full-ack" nil t)
@@ -795,12 +809,6 @@ The full path into relative path insert it as a local file link in org-mode"
     (message "%s => clipboard & yank ring" rlt)
     ))
 
-;; (when (< emacs-major-version 24)
-;;   (require 'color-theme)
-;;   (setq color-theme-is-global t)
-;;   (color-theme-lethe)
-;;   )
-
 (defun add-pwd-into-load-path ()
   "add current directory into load-path, useful for elisp developers"
   (interactive)
@@ -867,11 +875,6 @@ The full path into relative path insert it as a local file link in org-mode"
 ;;   (toggle-input-method))
 
 ;; (global-set-key (kbd "C-\\") 'evil-toggle-input-method)
-
-;; color theme
-(require 'color-theme)
-(color-theme-molokai)
-;; (color-theme-solarized-dark)
 
 (global-set-key [f7] 'compile)
 ;; {{smart-compile: http://www.emacswiki.org/emacs/SmartCompile
