@@ -98,6 +98,8 @@
 ;; -----------------------------------------------------------------
 ;;  mode configs
 ;; -----------------------------------------------------------------
+(require 'init-mode-hook)
+
 ;; (require 'init-crontab)
 ;; (require 'init-textile)
 (require 'init-markdown)
@@ -125,8 +127,6 @@
 (require 'init-cmake-mode)
 ;; (require 'init-csharp-mode)
 (require 'init-go-mode)
-
-(require 'init-mode-hook)
 
 ;; ---------------------------------------------------------------------------
 ;; (require 'init-xref)
