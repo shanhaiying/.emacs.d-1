@@ -186,6 +186,12 @@ Like eclipse's Ctrl+Alt+F."
                              (if (boundp 'old-fullscreen) old-fullscreen nil)
                            (progn (setq old-fullscreen current-value)
                                   'fullboth)))))
+
+(defun rev ()
+  "revert buffer without confirm"
+  (interactive)
+  (revert-buffer nil t t))
+
 ;; (defun toggle-fullscreen ()
 ;;   (interactive)
 ;;   (x-send-client-message
