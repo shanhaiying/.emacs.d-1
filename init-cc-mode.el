@@ -370,6 +370,7 @@ the directories in the INCLUDE environment variable."
   (gtags-mode 1)
 
   (require 'fic-mode)
+  (add-hook 'c-mode-hook 'turn-on-fic-mode)
   (add-hook 'c++-mode-hook 'turn-on-fic-mode)
 
   ; @see https://github.com/seanfisk/cmake-flymake
